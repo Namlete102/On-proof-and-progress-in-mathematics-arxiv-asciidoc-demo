@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor.js 4.0.6">
+<meta name="author" content="William P.Thurston">
+<title>Về chứng minh và sự tiến bộ trong toán học</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CNoto+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+  h1{font-size:2.75em}
+  h2{font-size:2.3125em}
+  h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+  h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+  body.toc2{padding-left:15em;padding-right:0}
+  body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+  #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+  #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+  #toc.toc2>ul{font-size:.9em;margin-bottom:0}
+  #toc.toc2 ul ul{margin-left:0;padding-left:1em}
+  #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+  body.toc2.toc-right{padding-left:0;padding-right:15em}
+  body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+  #toc.toc2{width:20em}
+  #toc.toc2 #toctitle{font-size:1.375em}
+  #toc.toc2>ul{font-size:.95em}
+  #toc.toc2 ul ul{padding-left:1.25em}
+  body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+  .sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock pre>code{display:block}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+  html{font-size:80%}
+  a{color:inherit!important;text-decoration:underline!important}
+  a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+  a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+  abbr[title]{border-bottom:1px dotted}
+  abbr[title]::after{content:" (" attr(title) ")"}
+  pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+  thead{display:table-header-group}
+  svg{max-width:100%}
+  p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+  h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+  #header,#content,#footnotes,#footer{max-width:none}
+  #toc,.sidebarblock,.exampleblock>.content{background:none!important}
+  #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+  body.book #header{text-align:center}
+  body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+  body.book #header .details{border:0!important;display:block;padding:0!important}
+  body.book #header .details span:first-child{margin-left:0!important}
+  body.book #header .details br{display:block}
+  body.book #header .details br+span::before{content:none!important}
+  body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+  body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+  .listingblock code[data-lang]::before{display:block}
+  #footer{padding:0 .9375em}
+  .hide-on-print{display:none!important}
+  .print-only{display:block!important}
+  .hide-for-print{display:none!important}
+  .show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+  .sect1{padding:0!important}
+  .sect1+.sect1{border:0}
+  #footer{background:none}
+  #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Về chứng minh và sự tiến bộ trong toán học</h1>
+<div class="details">
+<span id="author" class="author">William P.Thurston</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_tóm_tắt_nội_dung">Tóm tắt nội dung</a></li>
+<li><a href="#_các_nhà_toán_học_đạt_được_thành_quả_gì">1. Các nhà toán học đạt được thành quả gì ?</a></li>
+<li><a href="#_con_người_hiểu_về_toán_học_như_thế_nào">2. Con người hiểu về toán học như thế nào ?</a></li>
+<li><a href="#_hiểu_biết_toán_học_được_truyền_đạt_nhứ_thế_nào">3. Hiểu biết toán học được truyền đạt nhứ thế nào ?</a></li>
+<li><a href="#_thế_nào_là_một_phép_chứng_minh">4. Thế nào là một phép chứng minh</a></li>
+<li><a href="#_điều_gì_khích_lệ_con_người_nghiên_cứu_toán_học">5. Điều gì khích lệ con người nghiên cứu toán học ?</a></li>
+<li><a href="#_một_số_kinh_nghiệm_cá_nhân">6. Một số kinh nghiệm cá nhân</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_tóm_tắt_nội_dung">Tóm tắt nội dung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bài viết này trình bày về bản chất của phép chứng minh và tiến bộ trong toán học, được khuyến khích
+bởi bài báo của Jaffe và Quinn, <em>“Theoretical Mathematics: Toward a cultural synthesis of mathematics
+and theoretical physics”</em> (Toán học lý thuyết: Hướng tới sự tổng hợp mang tính văn hóa của toán học
+và vật lý lý thuyết). Bài báo của họ nêu lên nhiều vấn đề thú vị mà các nhà toán học cần quan tâm tới
+nhiều hơn, nhưng nó cũng duy trì một số niềm tin và thái độ cần bị nghi ngờ và cần được kiểm chứng.</p>
+</div>
+<div class="paragraph">
+<p>Bài báo có một đoạn miêu tả vài phần trong công trình của tôi theo một cách chệch đi với kinh
+nghiệm của tôi, và nó cũng chệch khỏi những quan sát của mọi người trong lĩnh vực mà tôi đã từng
+thảo luận cùng về nó như một phép thử thực tế.</p>
+</div>
+<div class="paragraph">
+<p>Sau một hồi suy nghĩ, tôi thấy có vẻ như những gì Jaffe và Quinn viết là một ví dụ cho hiện tượng
+rằng mọi người thấy cái mà họ được định hướng để thấy. Sự mô tả của Jaffe và Quinn thu được qua
+việc chiếu tính xã hội học của toán học lên một thang kích thước một chiều (ức đoán và chặt chẽ), bỏ
+qua rất nhiều hiện tượng cơ bản.</p>
+</div>
+<div class="paragraph">
+<p>Nhiều phản hồi tới bài báo của Jaffe và Quinn đã được gửi đi bởi rất nhiều những nhà toán học,
+và tôi kỳ vọng rằng nó nhận được nhiều phân tích và phản biện cụ thể từ những người khác. Bởi vậy,
+trong bài viết này, tôi sẽ tập trung vào khía cạnh tích cực thay vì khía cạnh phản phủ định. Tôi sẽ
+trình bày quan điểm của mình về tiến trình của toán học, chỉ đôi khi nhắc đến bài báo của Jaffe và
+Quinn qua việc so sánh.</p>
+</div>
+<div class="paragraph">
+<p>Để thử lột bỏ các lớp của các giả thiết, điều quan trọng là phải thử bắt đầu với những câu hỏi
+đúng:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_các_nhà_toán_học_đạt_được_thành_quả_gì">1. Các nhà toán học đạt được thành quả gì ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Có nhiều vấn đề bị che khuất trong câu hỏi này, mà tôi đã cố gắng để diễn đạt lại theo cách không giả
+định trước bản chất của câu trả lời.</p>
+</div>
+<div class="paragraph">
+<p>Chẳng hạn, quả thực không tốt nếu ta bắt đầu với câu hỏi</p>
+</div>
+<div class="paragraph text-center">
+<p><em>Các nhà toán học chứng minh các định lý như thế nào?</em></p>
+</div>
+<div class="paragraph">
+<p>Câu hỏi này dẫn đến một chủ đề thú vị, nhưng để bắt đầu với nó ta phải đánh giá hai giả định ẩn giấu:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Rằng tồn tại lý thuyết và thực tiễn khách quan, bất biến và được kiểm chứng chắc chắn của phép
+chứng minh toán học.</p>
+</li>
+<li>
+<p>Rằng tiến bộ được tạo ra bởi các nhà toán học bao gồm việc chứng minh những định lý.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Những giả thuyết này đáng để ta kiểm chứng, thay vì chấp nhận chúng như là những điều hiển nhiên và
+tiếp tục tiến lên từ chúng.</p>
+</div>
+<div class="paragraph">
+<p>Thậm chí, câu hỏi cũng không phải là</p>
+</div>
+<div class="paragraph text-center">
+<p><em>Các nhà toán học đã tạo ra những tiến bộ trong toán học như thế nào ?</em></p>
+</div>
+<div class="paragraph">
+<p>Thay vì đó dạng câu hỏi cụ thể (và quan trọng) mà tôi ưa thích là</p>
+</div>
+<div class="paragraph text-center">
+<p><em>Làm thế nào mà các nhà toán học làm thúc đẩy hiểu biết của con người về toán học ?</em></p>
+</div>
+<div class="paragraph">
+<p>Câu hỏi này đem đến một điều căn bản và có tính lan tỏa: việc mà chúng ta đang làm là tìm những cách
+giúp con người hiểu và tư duy về toán học.</p>
+</div>
+<div class="paragraph">
+<p>Sự phát triển đột phá của máy vi tính đã giúp làm nổi bật luận điểm này, bởi vì các máy tính và con
+người rất khác nhau. Chẳng hạn, khi Appel và Haken hoàn tất phép chứng minh cho định lý 4 màu, sử
+dụng một khối lượng tính toán tự động khổng lồ, nó đã gây ra rất nhiều tranh cãi. Tôi hiểu rằng sự tranh
+cãi này không mấy liên quan đến tính xác thực của định lý hay sự chính xác của phép chứng minh mà
+người ta hoài nghi. Thay vì đó, nó phản ánh một niềm mong mỏi liên tục cho hiểu biết của con người về
+một phép chứng minh, ngoài việc biết rằng định lý là đúng.</p>
+</div>
+<div class="paragraph">
+<p>Ở một mức độ bình dị hơn, thường thì người ta nỗ lực sử dụng các máy tính để thực hiện những tính
+toán ở thang kích thước lớn cho những thứ mà họ đã hoàn thành ở thang nhỏ hơn bằng tay. Họ có thể
+in ra một bảng gồm 10000 số nguyên tố đầu tiên, rồi chỉ để thấy rằng, sau cùng thứ mà họ in ra chẳng
+phải là thứ mà họ đã mong mỏi. Qua những việc như thế, họ khám phá ra rằng thứ mà họ thực sự muốn
+thường không phải là một tập hợp của“các đáp án” – thứ họ muốn là sự thấu hiểu.</p>
+</div>
+<div class="paragraph">
+<p>Có vẻ như luẩn quẩn khi nói rằng điều mà các nhà toán học đang hoàn thành tốt là thúc đẩy hiểu biết
+của con người về toán học. Tôi sẽ không thử giải quyết vấn đề này bằng việc thảo luận toán học là gì, bởi
+vì nó sẽ đưa chúng ta đi lạc đề. Các nhà toán học thường cảm thấy rằng họ biết toán học là gì, nhưng
+cũng thấy rằng thật khó để trực tiếp đưa ra một định nghĩa tốt. Thực sự sẽ rất thú vị khi thử đặt vấn
+đề như vậy. Với tôi, câu trả lời “lý thuyết của những quy luật hình thức” là sát nhất, nhưng để thảo luận
+về nó thì lại phải cần thêm một bài viết khác mất.</p>
+</div>
+<div class="paragraph">
+<p>Liệu rằng, khi nhấn mạnh rằng toán học có một đặc tính đệ quy căn bản thì sự khó khăn trong việc trực
+tiếp đưa ra một định nghĩa tốt là một vấn đề mang tính bản chất? Cùng với những quan điểm này, chúng
+ta có thể nói rằng toán học là một ngành tối giản nhất thỏa mãn những điều kiện sau:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Toán học bao gồm các số tự nhiên, hình học Euclid trong mặt phẳng và không gian</p>
+</li>
+<li>
+<p>Toán học là ngành mà các nhà toán học nghiên cứu.</p>
+</li>
+<li>
+<p>Các nhà toán học là những người thúc đẩy tiến bộ của nhân loại trong hiểu biết về toán học.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nói cách khác, khi toán học tiến bộ, chúng ta thu nạp nó vào tư duy của mình. Khi tiến trình tư duy của
+chúng ta trở nên phức tạp hơn, chúng ta tạo ra thêm những khái niệm và cấu trúc toán học mới: Chủ đề
+của toán học thay đổi để phản ánh cách chúng ta suy nghĩ.</p>
+</div>
+<div class="paragraph">
+<p>Nếu những gì chúng ta đang làm là xây dựng các cách tư duy mới hơn, thì chiều tâm lý và xã hội là căn
+bản cho một mô hình tốt cho tiến bộ của toán học. Những chiều này không xuất hiện trong mô hình phổ
+biến. Nói một cách châm biếm, mô hình thường thấy bao gồm</p>
+</div>
+<div class="paragraph">
+<p><strong>D.</strong> Các nhà toán học bắt đầu từ những cấu trúc toán học cơ bản và một tập hợp các tiên đề “cho trước”
+về những cấu trúc ấy mà</p>
+</div>
+<div class="paragraph">
+<p><strong>T.</strong> có nhiều câu hỏi quan trọng cần được trả lời về những cấu trúc mà có thể được phát biểu như là
+những định lý toán học hình thức, và</p>
+</div>
+<div class="paragraph">
+<p><strong>P.</strong> nhiệm vụ của các nhà toán học là tìm ra một cách suy diễn từ những tiên đề tới các định lý hay đưa ra sự phủ định.</p>
+</div>
+<div class="paragraph">
+<p>Chúng ta có thể gọi đây là mô hình định nghĩa - định lý - chứng minh (DTP) của toán học.</p>
+</div>
+<div class="paragraph">
+<p>Một khó khăn rõ ràng với mô hình DTP đó là nó không thể giải thích nguồn gốc của các câu hỏi. Jaffe
+và Quinn đã thảo luận về một ức đoán (mà họ đã dán cho một cái nhãn không mấy thích hợp đó là <em>“toán
+học lý thuyết”</em>) như là những thành phần bổ sung quan trọng. Ức đoán này bao gồm việc thiết lập các
+giả thuyết, đặt ra những câu hỏi và đưa ra những phỏng đoán thông minh cũng như các lập luận mang
+tính khám phá về điều có thể đúng.</p>
+</div>
+<div class="paragraph">
+<p>Mô hình DTP của Jaffe và Quinn vẫn không thành công trong việc chỉ ra một số vấn đề căn bản. Chúng
+ta không cố gắng đạt được một mức trừu tượng nhất định cho các định nghĩa, định lý, và chứng minh.
+Thước đo cho thành công của chúng ta đó là chúng ta có giúp được con người hiểu và tư duy về toán học
+một cách sáng sủa và hiệu quả hơn hay không.</p>
+</div>
+<div class="paragraph">
+<p>Bởi vậy, chúng ta cần phải tự hỏi mình:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_con_người_hiểu_về_toán_học_như_thế_nào">2. Con người hiểu về toán học như thế nào ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Đây là một câu hỏi cực hóc búa. Hiểu biết là một vấn đề cá nhân và mang tính nội tại mà khó có thể
+hoàn toàn nhận biết, thấu hiểu và thường là khó có thể trao đổi với nhau được. Ở đây, chỉ có thể đề cập
+sơ sơ tới nó mà thôi.</p>
+</div>
+<div class="paragraph">
+<p>Con người thường có nhiều cách hiểu khác nhau về những khái niệm toán học. Để minh họa điều này,
+tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau,
+nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn
+toàn thích hợp. Đạo hàm có thể được hiểu như:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi
+vô cùng nhỏ của hàm số.</p>
+</li>
+<li>
+<p>Tính ký hiệu: Đạo hàm của \(x^n\) là \(nx^{n-1}\), đào hàm của \(\sin x\) là \(\cos x\) đạo hàm của \(f \cdot g\) là \(f' \cdot g * g'\), ..vv..</p>
+</li>
+<li>
+<p>Một cách logic: \(f'(x) = d\) nếu và chỉ nếu với mỗi \(\epsilon\) tồn tại \(\delta\) sao cho khi \(0 &lt; |\Delta x| &lt; \delta\),</p>
+</li>
+</ol>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\left|\frac{f(x+\Delta x) - f(x)}{\Delta x} - d \right| &lt; \delta\]
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Một cách hình học: Đạo hàm là hệ số góc của một tiếp tuyến với đồ thị hàm số, nếu đồ thị có tiếp tuyến.</p>
+</li>
+<li>
+<p>Tốc độ thay đổi: Tốc độ tức thời của \(f(t)\), với \(t\) là thời gian.</p>
+</li>
+<li>
+<p>Xấp xỉ: Đạo hàm của một hàm số là xấp xỉ tuyến tính tốt nhất của hàm số ở lân cận của một điểm.</p>
+</li>
+<li>
+<p>Vi mô : Đạo hàm của một hàm số là giới hạn bạn thu được qua việc quan sát nó bằng một kính hiển vi với độ phóng đại ngày càng tăng.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Đây là một danh sách các cách <em>suy nghĩ</em> hay <em>tiếp nhận</em> khác nhau về khái niệm đạo hàm, thay vì một danh sách các định nghĩa mang tính lô-gic. Nếu không có những nỗ lực to lớn để bảo toàn phong thái và đặc trưng của nhận thức nguyên thủy của con người, sự khác biệt sẽ bắt đầu tan biến ngay khi những
+khái niệm tư duy được dịch sang những định nghĩa chính xác, mang tính hình thức và cụ thể.</p>
+</div>
+<div class="paragraph">
+<p>Tôi nhớ rằng mình đã tiếp thu mỗi một trong những khái niệm trên như điều gì đó mới mẻ và thú vị, dành nhiều thời gian, nỗ lực để suy nghĩ cẩn thận và thực hành cùng với mỗi một trong chúng, rồi đồng nhất chúng với nhau. Tôi cũng không quên sau đó quay trở lại để xem xét những khái niệm khác nhau này với những ý nghĩa và hiểu biết bổ sung.</p>
+</div>
+<div class="paragraph">
+<p>Danh sách còn tiếp tục, không có lý do gì để nó phải ngừng lại cả. Một mục xa hơn bên dưới danh sách  có thể giúp ích cho việc minh họa cho điều này. Chúng ta có thể nghĩ rằng ta đã biết tất cả mọi điều để nói về một chủ đề nhất định, nhưng những vẫn luôn có những góc nhìn mới ở đâu đó.</p>
+</div>
+<div class="paragraph">
+<p>Hơn thế nữa, một hình ảnh rõ ràng trong sáng của người này lại là nỗi ám ảnh với người khác:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="37">
+<li>
+<p>Đạo hàm của một hàm số thực \(f\) trong một miền \(\mathbb{D}\) là thành phần Lagrange của phân thớ đối tiếp xúc \(T * (\mathbb{D})\) mà đưa ra dạng liên thông cho liên thông dẹt trên \(\mathbb{R}\)- phân thứ tầm thường \(\mathbb{D} \times \mathbb{R}\) mà ở đó đồ thị \(f\) là song song.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Những khác biệt này không phải chỉ là sự tò mò. Suy nghĩ của con người và tri thức không vận hành trên một đường đơn lẻ, giống như chiếc máy vi tính với duy nhất một bộ vi xử lý. Não bộ và tâm trí chúng ta có vẻ như được tổ chức trong một mớ những thành phần riêng biệt đầy sức mạnh. Những thành phần này vận hành cùng nhau một cách lỏng lẻo, <em>“truyền đạt”</em> cho nhau ở mức tổ chức cao thay vì ở mức tổ chức thấp.</p>
+</div>
+<div class="paragraph">
+<p>Dưới đây là một cách phân loại chính, có vai trò quan trọng trong việc tư duy toán học</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ngôn ngữ của con người. Chúng ta có những phương tiện có mục tiêu đặc trưng và đầy sức mạnh cho việc nói và hiểu về ngôn ngữ của con người, những thứ cũng gắn với việc đọc và viết. Phương tiện ngôn ngữ của chúng ta là một công cụ quan trọng cho việc tư duy, chứ không chỉ riêng cho việc giao tiếp. Một ví dụ thô đó là công thức nghiệm của phương trình bậc hai một ẩn, mà nhiều người
+có thể vẫn còn nhớ qua câu hát ngắn "<em>ex equals minus bee plus or minus the square root of bee squared minus four ay see over two ay</em>"  (x bằng với trừ b cộng trừ căn bậc hai của b bình phương trừ bốn ac trên hai a). Ngôn ngữ toán học của các ký hiệu được gắn kết chặt chẽ với phương tiện
+ngôn ngữ của con người. Giữa những ký hiệu toán học phân mảnh, thứ có ý nghĩa với hầu hết sinh viên học giải tích chỉ là một động từ, =. Đây là lý do vì sao các sinh viên lại sử dụng nó khi họ thấy cần một động từ. Hầu hết những ai đã dạy lý thuyết vi phân và tích phân ở Mỹ đều đã từng thấy các sinh viên viết một cách bản năng kiểu như \(x^3 = 3x^2\) hay đại loại tương tự như vậy.</p>
+</li>
+<li>
+<p>Tầm nhìn, cảm quan không gian, cảm quan vận động. Con người có những phương tiện mạnh để thu nạp thông tin một cách trực quan hay theo cảm quan vận động, và tư duy với cảm quan không gian của họ. Mặt khác, họ không có một có một công cụ sẵn có thực sự tốt để đảo ngược góc nhìn,
+tức là chuyển một hiểu biết nội tại về không gian thành một bức ảnh hai chiều. Hệ quả là, các nhà
+toán học thường có ít hình vẽ hơn hoặc có hình vẽ xấu hơn trong các bài báo hay những cuốn sách
+của họ so với trong đầu họ.</p>
+<div class="paragraph">
+<p>Một hiện tượng thú vị trong việc tư duy về không gian đó là kích thước tạo nên khác biệt lớn. Chúng ta có thể nghĩ về những vật thể nhỏ bé trong bàn tay mình, hay những cấu trúc to lớn hơn như cỡ cơ thể người mà chúng ta quét, hay về các cấu trúc không gian bao quanh chúng ta mà ta chuyển động quanh bên trong. Chúng ta có khuynh hướng tư duy một cách hiệu quả hơn với hình
+ảnh về không gian trên một thang kích thước lớn hơn: như là nếu não bộ của chúng ta tiếp nhận những thứ to lớn hơn một cách chặt chẽ hơn và có thể dành cho chúng nhiều năng lượng hơn.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Lô-gic và diễn dịch. Chúng ta có một số cách thức sẵn có để suy luận và sắp xếp mọi thứ cùng nhau
+liên quan với cách mà chúng ta đưa ra các suy luận lô-gic: Nguyên nhân và kết quả (liên quan với
+những gì ẩn dấu), phản chứng hay phủ định, . . .</p>
+<div class="paragraph">
+<p>Có vẻ như các nhà toán học không hoàn toàn dựa trên những quy tắc hình thức của suy luận như là họ nghĩ. Thay vì vậy, họ giữ một lượng rất ít cấu trúc lô-gic của một phép chứng minh trong tâm trí họ, phân các phép chứng minh thành những kết quả trung gian mà nhờ đó họ không phải giữ quá nhiều lô-gic cùng một lúc. Thực tế, thường thấy rằng nhiều nhà toán học xuất chúng còn
+không biết đến cách dùng các lượng từ thế nào cho chuẩn(với mọi hay tồn tại,) nhưng tất cả các nhà toán học đều thực hiện được những suy luận mà họ đã mã hóa.</p>
+</div>
+<div class="paragraph">
+<p>Thật thú vị là mặc dù <em>"hoặc"</em>, <em>"và"</em> hay <em>"suy ra"</em> có những cách sử dụng hình thức như nhau, chúng ta lại nghĩ về <em>"hoặc"</em> hay <em>"và"</em> như là liên từ, còn <em>"suy ra"</em> là một động từ.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Trực giác, liên hệ, ẩn dụ. Con người có những công cụ tuyệt vời để cảm nhận về nhiều thứ mà họ không cần biết nó đến từ đâu (trực giác), để cảm nhận về những hiện tượng hay tình cảnh hay đối tượng nào đó giống thứ gì khác (liên hệ), và để xây dựng hay kiểm tra những liên kết và so sánh,
+mang trong tâm trí hai thứ cùng một lúc (ẩn dụ). Những công cụ này là khá quan trọng với toán học. Với riêng tôi, tôi đã dành nhiều nỗ lực để <em>"lắng nghe"</em> trực giác và tư duy liên hệ của mình, rồi xây dựng chúng thành những ẩn dụ và liên kết. Việc này bao hàm một kiểu tập trung và giữ tâm trí bình lặng một cách đồng thời. Ngôn từ, logic và những bức tranh chi tiết rầm rập chạy quanh có thể ngăn chặn trực giác và tư duy liên hệ.</p>
+</li>
+<li>
+<p>Kích thích-phản ứng. Điểm này thường được nhấn mạnh ở trong các trường học; chẳng hạn, nếu bạn thấy \(3927 \times 253\), bạn viết số này lên trên số kia và vẽ một đường thẳng bên dưới, v.v. Đây cũng
+là một điều quan trọng trong nghiên cứu toán học: nhìn thấy hình vẽ của một nút, tôi sẽ viết ra một biểu diễn cho nhóm cơ bản của phần bù của nó bằng một quy trình tương tự với thuật toán nhân.</p>
+</li>
+<li>
+<p>Tiến trình và thời gian. Chúng ta có một công cụ để nghĩ về những quá trình hay một chuỗi những hành động có thể thường được dùng để thu được hiệu quả tốt trong suy luận toán học. Một cách hiểu về hàm số: đấy là một tác động, một quá trình, đi từ miền xác định tới miền giá trị. Suy nghĩ
+này thực sự có giá trị khi lấy hợp thành của các hàm số. Một ứng dụng khác của công cụ này đó là ghi nhớ những phép chứng minh: người ta thường ghi nhớ một phép chứng minh như một quá trình bao gồm một vài bước. Trong tôpô, khái niệm đồng luân thường hay được hiểu nhất là như một quá trình theo thời gian. Xét về mặt toán học, thời gian cũng không khác gì với việc thêm vào
+một trục tọa độ không gian, nhưng bởi vì con người tương tác với nó theo một cách tương đối khác, nên nó lại rất khác về mặt tâm lý.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hiểu_biết_toán_học_được_truyền_đạt_nhứ_thế_nào">3. Hiểu biết toán học được truyền đạt nhứ thế nào ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Việc truyền đạt hiểu biết từ người này sang người khác là không tự động. Nó khó khăn và mẹo mực. Bởi vậy, để phân tích hiểu biết của con người về toán học, việc quan trọng là phải biết <em>ai hiểu</em>, <em>hiểu gì</em>, và <em>khi nào thì hiểu</em>.</p>
+</div>
+<div class="paragraph">
+<p>Các nhà toán học đã phát triển những thói quen giao tiếp, thường hơi &#8230;&#8203; bất bình thường. Bất cứ ở đâu những nhà tổ chức hội thảo cũng động viên người trình bày giải thích nội dung bằng những thuật ngữ cơ bản. Tuy nhiên, hầu như thính giả ở hội thảo cỡ trung bình nhận được ít giá trị từ nó. Có lẽ họ đã mất dấu sau năm phút đầu tiên, và ngồi im lặng trong 55 phút còn lại. Hay có lẽ họ nhanh chóng mất hứng thú bởi vì người báo cáo đi quá sâu vào chi tiết mà không đưa ra bất kỳ suy luận nào để đánh giá chúng. Ở cuối buổi báo cáo, chỉ một số ít các nhà toán học làm gần với lĩnh vực của báo cáo viên đặt một hay hai câu hỏi để tránh khỏi phải xấu hổ.</p>
+</div>
+<div class="paragraph">
+<p>Quy luật này cũng tương tự với những gì thường xảy ra trong lớp học, khi chúng ta nói về thực trạng rằng chúng ta nghĩ các sinh viên <em>"phải"</em> học, trong khi các sinh viên lại cố gắng nắm lấy những vấn đề cơ bản hơn trong việc học ngôn ngữ của chúng ta và dự đoán mô hình tư duy của chúng ta. Các cuốn sách bù đắp cho việc này bằng cách đưa ra cách giải tất cả các dạng bài tập về nhà. Các giáo sư bù đắp lại bằng cách đưa ra các bài tập về nhà và bài kiểm tra thường là dễ hơn những gì được <em>"phủ"</em> trong khóa học, và sau đó cho điểm bài tập về nhà và bài kiểm tra theo một thang điểm đòi hỏi rất ít sự thấu hiểu. Chúng ta cho rằng vấn đề nằm ở các sinh viên chứ không phải ở cách truyền đạt: Rằng các sinh viên hoặc không đủ khả năng để nắm bắt, hoặc là chẳng thèm quan tâm.</p>
+</div>
+<div class="paragraph">
+<p>Những người ngoại đạo thấy ngạc nhiên với hiện tượng này, nhưng bên trong cộng đồng toán học, chúng ta gạt bỏ nó bằng những cái nhún vai.</p>
+</div>
+<div class="paragraph">
+<p>Khó khăn lớn nhất nằm ở ngôn ngữ và văn hóa toán học, những thứ được chia thành các ngành hẹp.
+Những khái niệm cơ bản được sử dụng hàng ngày trong một ngành hẹp này có thể là ngoại ngữ với ngành
+hẹp khác. Các nhà toán học từ bỏ việc cố gắng hiểu những khái niệm căn bản thậm chí là của ngành hẹp
+lân cận, trừ phi họ phải hướng dẫn học viên sau đại học.</p>
+</div>
+<div class="paragraph">
+<p>Ngược lại, sự trao đổi diễn ra rất tốt bên trong những ngành hẹp của toán học. Trong một ngành hẹp,
+người ta xây dựng một cây tri thức chung và những kỹ thuật đã biết. Bằng giao tiếp không hình thức,
+người ta học cách hiểu và sao chép những cách suy nghĩ của nhau, do vậy những ý tưởng có thể được giải
+thích một cách sáng sủa và dễ dàng.</p>
+</div>
+<div class="paragraph">
+<p>Tri thức toán học có thể được truyền giao nhanh một cách đáng ngạc nhiên bên trong một ngành hẹp.
+Khi một định lý đáng chú ý được chứng minh, thường (nhưng không phải luôn luôn) xảy ra chuyện lời
+giải có thể được trao đổi trong vài phút từ người này sang người khác trong cùng một ngành đó. Chứng
+minh tương tự có thể được trao đổi và hiểu một cách tổng quan sau bài giảng kéo dài khoảng một giờ
+cho những thành viên trong ngành. Nó có thể là chủ đề của một bài báo 15 đến 20 trang, mà có thể được
+đọc và hiểu chỉ sau vài giờ hay có thể là vài ngày đối với thành viên của ngành hẹp.</p>
+</div>
+<div class="paragraph">
+<p>Tại sao lại có một sự phát triển lớn từ những thảo luận không chính thức tới bài báo cáo rồi tới bài báo?
+Một cách trực tiếp, người ta sử dụng những kênh trao đổi rộng rãi, đi xa hơn ngôn ngữ toán học hình
+thức. Họ sử dụng cử chỉ, họ vẽ các hình vẽ và lược đồ, họ tạo ra hiệu ứng âm thanh và sử dụng ngôn ngữ
+cơ thể. Sự trao đổi có vẻ tựa như là theo hai hướng, do vậy người ta có thể tập trung vào những gì mà
+họ cần chú ý hơn. Với những kênh thông tin này, họ có được vị thế tốt hơn nhiều để tuyền tải những gì
+đang diễn ra, không chỉ bằng những công cụ lô-gic và ngôn ngữ của họ mà bằng cả những công cụ tinh
+thần nữa.</p>
+</div>
+<div class="paragraph">
+<p>Khi báo cáo, người ta bị hạn chế hơn và cũng hình thức hơn. Các thính giả toán học thường không giỏi
+đặt các câu hỏi hay xuất hiện trong tâm trí con người, còn người báo cáo lại thường có bản đề cương
+soạn sẵn không thực tế ngăn cản họ nghĩ về các câu hỏi hay thậm chí là khi họ bị hỏi.</p>
+</div>
+<div class="paragraph">
+<p>Trong bài báo, người ta còn hình thức hơn. Những người viết bài dịch các ý tưởng của họ thành ký hiệu
+và suy luận lô-gic, còn người đọc thì lại cố gắng dịch ngược lại.</p>
+</div>
+<div class="paragraph">
+<p>Tại sao lại có sự không nhất quán giữa trao đổi trong một ngành hẹp với những trao đổi bên ngoài những
+ngành hẹp đó, nếu không muốn nói đến trao đổi bên ngoài toán học ?</p>
+</div>
+<div class="paragraph">
+<p>Theo một nghĩa nào đó thì Toán học có một ngôn ngữ chung: Ngôn ngữ của các ký hiệu, những định lý,tính toán mang tính kỹ thuật, và lô-gic. Ngôn ngữ này truyền tải hiệu quả một số, nhưng không phải tất
+cả, các trạng thái tư duy toán học. Các nhà toán học học từ việc dịch gần như vô thức một số thứ nhất
+định từ một trạng thái tinh thần này tới trạng thái khác, do vậy các mệnh đề nhanh chóng trở nên rõ
+ràng. Những nhà toán học khác nhau nghiên cứu các bài báo theo những cách khác nhau, nhưng khi tôi
+đọc một bài báo trong một lĩnh vực mà tôi thành thạo, thì tôi tập trung vào những suy nghĩ giữa các
+dòng kiến thức. Tôi có thể nhìn vào một vài đoạn hay chuỗi các phương trình và tự nhủ rằng <em>“À phải rồi, họ đã đưa vào đủ những lời dẫn phức tạp để bước theo những ý tưởng như thế này”</em>. Khi ý tưởng là
+rõ ràng, cách thiết lập hình thức lại thường là không cần thiết và rườm rà – tôi thường cảm thấy rằng
+tôi có thể tự viết nó ra một cách dễ dàng hơn so với việc khám phá xem các tác giả thực sự viết gì. Nó
+cũng giống như một thợ làm bánh tập sự thử với một tờ hướng dẫn dài 16 trang vậy. Nếu bạn hiểu các
+người thợ làm bánh và bạn gặp một người thợ làm bánh tập sự, bạn sẽ thấy anh ta đưa nguyên liệu vào
+và xem nó có phù hợp hay không thay vì trước tiên phải đọc tất cả những chi tiết trong sách hướng dẫn</p>
+</div>
+<div class="paragraph">
+<p>Những người quen với các phương thức làm việc khác nhau trong một ngành hẹp nhận biết những quy
+luật đa dạng của các mệnh đề hay công thức như là thành ngữ hay lối diễn đạt cho một số khái niệm hay
+hình ảnh trí tuệ nào đó. Nhưng với nhiều người không quen với những gì đang diễn ra, cùng những quy
+luật như thế lại không mấy sáng tỏ; thậm chí chúng còn thường gây nhầm lẫn. Ngôn ngữ không còn tồn
+tại ngoại trừ với người đang sử dụng nó.</p>
+</div>
+<div class="paragraph">
+<p>Ở đây, tôi muốn nhắc đến một chú ý quan trọng: Có một số nhà toán học, những người quen thuộc với
+những cách tư duy trong nhiều hơn một ngành hẹp, đôi khi là nhiều ngành như thế. Một số nhà toán học
+học được biệt ngữ của vài ngành hẹp khi là học viên cao học, một số lại nhạy bén với việc thu nạp những
+ngôn ngữ và văn hóa toán học của ngành khác còn một số khác thì lại ở các trung tâm của toán học nơi
+mà họ được tiếp xúc với rất nhiều ngành hẹp. Những người có thể làm việc thoải mái với nhiều hơn một
+ngành hẹp thường có một ảnh hưởng rất tích cực, họ bắc những cây cầu hay giúp đỡ những nhóm các
+nhà toán học học hỏi lẫn nhau. Nhưng khả năng hiểu biết của con người trong đa lĩnh vực có thể có ảnh
+hưởng tiêu cực, qua việc dọa dẫm người khác, hay giúp phê chuẩn và duy trì một hệ thống giao tiếp kém.
+Chẳng hạn, một hiệu ứng thường xuất hiện trong những buổi hội thảo chuyên đề, khi một hay hai người
+có hiểu biết rộng rãi ngồi ở hàng đầu có thể đóng vai trò như là người dẫn dắt tinh thần của báo cáo viên
+cho thính giả.</p>
+</div>
+<div class="paragraph">
+<p>Có một hiệu ứng khác, có nguồn gốc từ những khác biệt lớn giữa cách chúng ta nghĩ về toán học và cách
+chúng ta viết nó. Một nhóm các nhà toán học tương tác với nhau có thể giữ một tập hợp các ý tưởng
+toán học tồn tại trong một quãng thời gian vài năm, mặc dù những phiên bản ghi chép về công trình
+toán học của họ khác với những gì họ thực sự nghĩ, lại nhấn mạnh nhiều hơn rất nhiều vào ngôn ngữ,
+ký hiệu, lô-gic và tính hình thức. Nhưng khi những nhóm các nhà toán học mới học về chủ đề này, họ có
+khuynh hướng mô tả những gì họ đọc và nghe bằng lời, do vậy những hình thức và cơ cấu có thể dễ dàng
+ghi lại hay trao đổi sẽ có khuynh hướng lấn át các hình thức tư duy khác. Có hai thước đo cho khuynh
+hướng này, do vậy toán học không hoàn bị đẩy vào tình thế khó khăn trong vấn đề hình thức. Thứ nhất,
+các thế hệ nhà toán học trẻ hơn đang tiếp tục tự khám phá và tái khám phá những cách nhận thức, do
+vậy đan cài lại những trạng thái tư duy đa dạng của con người vào toán học. Thứ hai, đôi khi các nhà
+toán học sáng tạo ra những cái tên và tình cờ thống nhất những định nghĩa mà thay thế các diễn đạt
+luẩn quẩn mang tính kỹ thuật và đưa ra những cách luận giải tốt cho các cách nhận thức. Những cái tên
+như <em>“nhóm”</em> để thay thế cho <em>“một hệ các phép thế thỏa mãn &#8230;&#8203;”</em>, và <em>“đa tạp”</em> để thay thế cho . . . (dịch bị sót)</p>
+</div>
+<div class="paragraph">
+<p><em>Chúng ta không thể đưa ra các tọa độ để tham số hóa một cách đồng thời tất cả các nghiệm của những phương trình của mình, nhưng trong lân cận của bất kỳ một nghiệm cụ thể nào ta có thể đưa ra các tọa độ</em></p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_1(u_1, u_2, u_3), f_2 (u_1, u_2, u_3), f_3 (u_1, u_2, u_3), f_4 (u_1, u_2, u_3), f_5 (u_1, u_2, u_3)\]
+</div>
+</div>
+<div class="paragraph">
+<p><em>trong đó có ít nhất một trong mười định thức &#8230;&#8203; [10 định thức 3 × 3] cho các ma trận của những đạo hàm riêng la khác không.</em></p>
+</div>
+<div class="paragraph">
+<p>có thể hoặc không thể diễn đạt được những đột phá trong nhận thức của các chuyên gia, nhưng chúng làm giảm rất nhiều những khó khăn trong việc trao đổi nhận thức.</p>
+</div>
+<div class="paragraph">
+<p>Các nhà toán học cần phải dồn thêm nhiều tâm sức hơn nữa vào việc trao đổi các ý tưởng. Để hoàn thành việc này, chúng ta cần phải chú ý nhiều hơn tới việc trao đổi không chỉ những định nghĩa, định lý, và chứng minh, mà còn cả cách tư duy của mình nữa. Ta cần phải đánh giá đúng giá trị của những cách
+tư duy khác nhau về cùng một cấu trúc toán học.</p>
+</div>
+<div class="paragraph">
+<p>Chúng ta cần phải tập trung thật nhiều năng lượng hơn nữa cho việc hiểu và giải thích các cơ sở tinh thần căn bản của toán học – và hệ quả là dành ít hơn năng lượng cho các kết quả mới. Điều này dẫn đến sự phát triển ngôn ngữ toán học mà có hiệu quả cho mục đích nguyên sơ của việc truyền giao ý tưởng
+cho những người chưa biết.</p>
+</div>
+<div class="paragraph">
+<p>Một phần trong việc trao đổi này là qua các chứng minh.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_thế_nào_là_một_phép_chứng_minh">4. Thế nào là một phép chứng minh</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Khi tôi mới bắt đầu vào học sau đại học ở Berkeley, tôi có vấn đề với việc tưởng tượng làm thế
+nào mình có thể <em>“chứng minh”</em> một định lý toán học mới và thú vị. Tôi không thực sự hiểu thế nào là một “phép chứng minh”.</p>
+</div>
+<div class="paragraph">
+<p>Qua việc đi seminar, đọc các bài báo, và trò chuyện với các học viên sau đại học khác, tôi dần
+dần nắm được vấn đề. Trong bất kỳ ngành nào, có một số định lý và kỹ thuật nhất định được
+biết đến và chấp nhận rộng rãi. Khi bạn viết một bài báo, bạn nhắc đến chúng mà không cần
+dẫn chứng minh. Bạn nhìn vào những bài báo khác trong ngành, bạn thấy những cơ sở lập luận
+mà họ trích lại không kèm chứng minh, và những gì họ trích dẫn trong phần tài liệu tham khảo.
+Bạn học vài ý tưởng về các phép chứng minh từ những người khác. Và rồi bạn có thể tự do trích
+lại cùng định lý đó và cùng những trích dẫn kia. Bạn không cần phải đọc toàn bộ những bài báo
+hay các cuốn sách trong phần tài liệu tham khảo của bạn. Có rất nhiều thứ được biết đến rộng rãi là những thứ mà không còn văn bản nguồn được biết đến nữa. Chừng nào mà những người
+làm việc trong ngành đó còn thấy thoải mái vì những ý tưởng đó thực sự có tác dụng, nó không
+cần phải có một văn bản nguồn chính thức.</p>
+</div>
+<div class="paragraph">
+<p>Đầu tiên, tôi đã thực sự rất nghi ngờ quá trình này. Tôi đã ngờ rằng liệu có một ý tưởng nào thực
+sự được công bố hay chưa. Nhưng tôi thấy rằng tôi có thể hỏi mọi người và họ có thể đưa ra
+những giải đáp và chứng minh, hoặc có thể giới thiệu tôi tới ai đó khác hay tới những văn bản
+nguồn mà có cung cấp những lời giải thích hay các chứng minh. Có những định lý đã được công
+bố mà cũng được biết đến rộng rãi là không chính xác hay những chứng minh là không hoàn
+thiện. Tri thức và hiểu biết toán học được ẩn trong tâm trí và trong kết cấu xã hội của cộng đồng
+những người nghiên cứu một chủ đề nhất định. Tri thức toán học này được hỗ trợ bởi những văn
+bản lưu trữ, nhưng những tài liệu ấy cũng không thực sự chính yếu.</p>
+</div>
+<div class="paragraph">
+<p>Tôi nghĩ mẫu hình này thay đổi chút ít qua từng ngành. Tôi đã quan tâm đến lĩnh vực hình học
+của toán học, nơi bây giờ rất hiếm tìm được một tài liệu phản ánh tốt cách thức mà người ta thực
+sự tư duy. Trong những lĩnh vực đại số hơn hay mang tính ký hiệu nhiều hơn, thì không nhất
+thiết phải như thế, và tôi có ấn tượng rằng trong nhiều lĩnh vực, các tài liệu thực sự gần như là
+xương sống của ngành. Nhưng trong lĩnh vực nào cũng có một tiêu chuẩn xã hội mạnh cho tính
+hợp lệ và sự đúng đắn. Chứng minh của Andrew Wiles cho Định lý cuối cùng của Fermat là
+một ví dụ minh họa tốt cho điều này, trong một lĩnh vực mang nhiều tính đại số. Các chuyên gia
+nhanh chóng tin rằng chứng minh của ông căn bản là đúng trên nền tảng của những ý tưởng cao
+cấp, từ rất lâu trước khi những chi tiết trong chứng minh có thể được kiểm chứng. Chứng minh
+này sẽ nhận được rất nhiều sự xem xét và kiểm tra kỹ lưỡng so với hầu hết các phép chứng minh
+toán học khác, nhưng bất kể quá trình kiểm tra hé lộ điều gì, nó cũng giúp minh họa xem toán
+học tiến triển thế nào qua những hệ thống tâm lý học và quá trình xã hội học.</p>
+</div>
+<div class="paragraph">
+<p>Khi mọi người làm toán, dòng các ý tưởng và tiêu chí xã hội cho giá trị và sự chính xác là đáng
+tin cậy hơn nhiều so với những tài liệu hình thức. Người ta thường không giỏi lắm trong việc
+kiểm tra <em>tính đúng đắn hình thức</em> của các phép chứng minh, nhưng họ lại khá chính xác trong
+việc phát hiện những điểm yếu tiềm tàng hay những lỗi sai trong các phép chứng minh ấy</p>
+</div>
+<div class="paragraph">
+<p>Để tránh giải thích sai, tôi muốn nhấn mạnh vào hai thứ mà tôi <em>không</em> đang nói đến. Trước tiên,
+tôi <em>không</em> bào chữa cho bất kỳ yếu kém nào của tiêu chí chuẩn về phép chứng minh của cộng
+đồng chúng ta, mà tôi đang cố gắng diễn tả quá trình chứng minh ấy thực sự vận hành như thế
+nào. Các phép chứng minh cẩn thận mà sẽ chống lại sự soi xét là rất quan trọng. Tôi nghĩ rằng,
+nếu xét toàn thể, quá trình của các phép chứng minh vận hành khá tốt trong cộng đồng toán học.
+Kiểu thay đổi mà tôi muốn bào chữa là các nhà toán học cẩn thận hơn với các phép chứng minh
+của họ, làm cho chúng rõ ràng và đơn giản nhất có thể và nhờ đó nếu bất kỳ điểm yếu nào xuất
+hiện, thì cũng dễ dàng được phát hiện.</p>
+</div>
+<div class="paragraph">
+<p>Thứ hai, tôi <em>không</em> phê bình nghiên cứu toán học của các chứng minh hình thức, tôi cũng không
+phê bình những người dành năng lượng vào việc tạo ra những luận điểm toán học ngày một cụ
+thể và hình thức hơn. Chúng đều là những hoạt động có ích mà soi rọi những nhận thức mới về
+toán học.</p>
+</div>
+<div class="paragraph">
+<p>Tôi đã khá nỗ lực trong nhiều quá trình của sự nghiệp của mình để khám phá những câu hỏi
+toán học bằng máy tính. Theo quan điểm của kinh nghiệm này, tôi đã ngạc nhiên khi thấy mệnh
+đề của Jaffe và Quinn rằng toán học là vô cùng chậm chạp và khó khăn, và rằng có thể xác minh
+được rằng nó là hoạt động mang tính chặt chẽ nhất trong tất cả các hoạt động của con người.
+Tiêu chuẩn cho sự chính xác và hoàn thiện để có được một chương trình máy tính vận hành được
+ở mức cao hơn hai lần so với tiêu chuẩn của cộng đồng toán học cho các phép chứng minh đúng đắn. Tuy nhiên, những chương trình máy tính lớn, thậm chí khi chúng đã được viết và kiểm tra
+một cách rất cẩn thận, thì lại luôn có vẻ như có lỗi.</p>
+</div>
+<div class="paragraph">
+<p>Tôi nghĩ rằng toán học là một trong những phần thưởng trí tuệ lớn nhất trong các hoạt động của
+con người. Bởi vì chúng ta có một tiêu chuẩn cao cho sự rõ ràng và thuyết phục của tư duy và
+do chúng ta đặt một tiêu chuẩn cao trong việc lắng nghe và cố gắng tiếp thu lẫn nhau, chúng ta
+không tham gia vào những luận điểm dài dòng hay làm đi làm lại những vấn đề toán học của
+mình. Chúng ta được chuẩn bị để được thuyết phục bởi những người khác. Nói một cách trí tuệ,
+toán học chuyển động rất nhanh. Toàn bộ cảnh quan toán học thay đổi liên tục theo những cách
+đáng ngạc nhiên trong suốt một sự nghiệp đơn lẻ. Khi ta biết là viết một chương trình máy tính
+tiếp cận mục tiêu trí thức của một bài báo toán học tốt khó đến thế nào, và sẽ phải tốn nhiều nỗ
+lực và thời gian để biến nó thành “gần như” đúng một cách hình thức, thật phi lý khi khẳng định
+rằng toán học mà chúng ta đang thực hành lại không ở đâu gần đúng một cách hình thức.</p>
+</div>
+<div class="paragraph">
+<p>Toán học mà chúng ta thực hành, một cách hình thức là hoàn thiện hơn rất nhiều và chính xác
+hơn nhiều ngành khoa học khác, nhưng nó thiếu hoàn thiện và chính xác một cách hình thức
+so với các phần mềm máy tính. Sự khác biệt không chỉ liên quan tới mức độ nỗ lực: kiểu nỗ
+lực khác biệt về lượng. Trong những phần mềm máy tính đồ sộ, một lượng nỗ lực khủng khiếp
+phải được sử dụng cho vô số vấn đề về tính tương thích: đảm bảo rằng tất cả các định nghĩa
+là nhất quán, phát triển những cấu trúc dữ liệu “tốt” mà hữu ích nhưng phần đông không làm
+vướng víu, quyết định trên sự tổng quát “phù hợp” cho các hàm số, etc. Tỉ lệ năng lượng sử
+dụng trên phần hoạt động của một phần mềm đồ sộ, để phân biệt với phần tính toán, là nhỏ đáng
+ngạc nhiên. Bởi vì những vấn đề tương thích mà hầu như chắc chắn vượt quá tầm kiểm soát do
+những định nghĩa "chuẩn" thay đổi khi nguyên tắc chung và phạm vi vận hành được thêm vào,
+các phần mềm máy tính hay cần phải được viết lại thường xuyên, thường là từ những hỗn độn.</p>
+</div>
+<div class="paragraph">
+<p>Một kiểu nỗ lực tương tự có lẽ đã đi vào toán học để giúp toán học đúng đắn, hoàn thiện một
+cách hình thức. Không phải sự chính xác về mặt hình thức là khó đến không vượt qua được dưới
+thang kích thước nhỏ - mà là có rất nhiều sự lựa chọn khả dĩ cho sự hình thức hóa trên những
+thang kích thước nhỏ mà có thể dịch sang số lượng khổng lồ của lựa chọn độc lập trong thang
+kích thước lớn. Việc làm cho những lựa chọn này tương thích với nhau là rất khó, làm như thế
+sẽ chắc chắn dẫn đến việc quay ngược lại và viết lại từ hỗn độn tất cả những bài báo toán học
+cũ có những kết quả chúng ta phải phụ thuộc vào. Cũng khá khó khăn để đưa ra những lựa chọn
+kỹ thuật cho các định nghĩa mang tính hình thức thích hợp với những cách thức đa dạng mà các
+nhà toán học muốn sử dụng chúng và điều này sẽ thúc đẩy sự mở rộng trong tương lai của toán
+học. Nếu chúng ta tiếp tục cộng tác, hầu hết thời gian của chúng ta sẽ được dành cho những hội
+đồng tiêu chuẩn quốc tế để thiết lập những định nghĩa thống nhất và giải quyết những vấn đề
+gây tranh cãi khổng lồ.</p>
+</div>
+<div class="paragraph">
+<p>Các nhà toán học có thể và thực sự khỏa lấp được những cách biệt, sửa chữa các lỗi, cung cấp
+thêm những chi tiết, phương pháp khoa học cẩn thận hơn khi họ được chọn hay thúc đẩy để làm
+như thế. Hệ thống của chúng ta làm khá tốt việc đưa ra những định lý tin cậy được mà có thể
+được lưu trữ một cách chắc chắn. Chỉ là tính tin cậy được không hoàn toàn đến từ chuyện các
+nhà toán học kiểm tra một cách hình thức các luận điểm hình thức, nó đến từ những nhà toán
+học suy nghĩ cẩn trọng, có phản biện về các ý tưởng toán học.</p>
+</div>
+<div class="paragraph">
+<p>Ở một mức độ nền tảng, những cơ sở của toán học là rất thiếu vững chãi so với thứ toán học mà
+chúng ta nghiên cứu. Hầu hết các nhà toán học bám lấy những nguyên lý mà được biết đến như
+là những hư cấu tao nhã. Chẳng hạn, có một định lý nói rằng không tồn tại cách nào để thực sự
+xây dựng hay thậm chí là định nghĩa một thứ tự tốt trên tập hợp số thực. Có một nguyên nhân đáng kể (nhưng không có chứng minh) rằng chúng ta có thể bỏ những hư cấu này đi mà cũng
+không sao cả, nhưng điều này cũng không giúp chúng trở nên chính xác được. Các nhà tập hợp
+xây dựng nhiều những "hoàn vũ toán học" mâu thuẫn xen kẽ và đan cài lẫn nhau sao cho nếu
+một trong số đó mà nhất quán thì những cái còn lại cũng thế. Việc này để lại rất ít độ tin cậy
+rằng hoàn vũ này hay hoàn vũ khác là lựa chọn đúng đắn hay lựa chọn tự nhiên. Định lý bất
+toàn của Kurt Godel hàm ý rằng không thể có hệ hình thức nào lại nhất quán được, nhưng lại đủ
+mạnh để có thể phục vụ như một cơ sở cho tất cả toán học mà chúng ta nghiên cứu.</p>
+</div>
+<div class="paragraph">
+<p>Đối nghịch với con người, máy tính lại giỏi thực hiện những quá trình hình thức. Một số người
+đang tích cực làm việc trong dự án hình thức hóa một cách thực sự các phần của toán học bằng
+máy tính, với những suy diễn hình thức chính xác. Tôi nghĩ rằng đây là một dự án lớn, rất đáng
+giá và tôi tự tin rằng chúng ta sẽ học được rất nhiều từ đó. Quá trình này sẽ giúp đơn giản hóa
+và làm toán học sáng sủa hơn. Không lâu nữa, tôi kỳ vọng chúng ta sẽ có những phần mềm máy
+tính mang tính tương tác mà có thể giúp con người dịch mã những khó khăn của toán học chính
+xác và hoàn thiện một cách hình thức (dựa trên một ít những giả định có lẽ vẫn yếu nhưng chí
+ít là cụ thể), và rằng chúng sẽ trở thành một phần của môi trường làm việc chuẩn của nhà toán
+học.</p>
+</div>
+<div class="paragraph">
+<p>Tuy nhiên, chúng ta nên nhận thấy rằng những chứng minh có thể hiểu được và có thể kiểm
+chứng được dưới góc độ của con người mà chúng ta thực sự làm được là những thứ quan trọng
+nhất với chúng ta và chúng khá khác biệt với những chứng minh hình thức. Hiện tại, những
+chứng minh hình thức vẫn nằm ngoài tầm với và hầu như không thích hợp: chúng ta có những
+quá trình đủ tốt của con người để kiểm chứng tính chính xác toán học.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_điều_gì_khích_lệ_con_người_nghiên_cứu_toán_học">5. Điều gì khích lệ con người nghiên cứu toán học ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Có một niềm vui thực sự khi làm toán, trong việc học những cách tư duy diễn giải, tổ chức và
+đơn giản hóa. Bạn có thể cảm thấy niềm vui khám phá toán học mới, tái khám phá toán học cổ
+xưa, học một cách tư duy từ ai đó hay từ tài liệu, tìm ra một cách giải thích mới, thú vị để nhìn
+nhận một cấu trúc toán học cũ.</p>
+</div>
+<div class="paragraph">
+<p>Động lực nội tại có thể hướng chúng ta nghĩ rằng chúng ta làm toán hoàn toàn vì lợi ích của
+chính nó. Điều này không chính xác: môi trường xã hội là cực kỳ quan trọng. Chúng ta được
+truyền cảm hứng bởi những người khác, được đánh giá cao bởi những người khác và chúng ta
+thích giúp đỡ những người khác giải quyết các vấn đề toán học của họ. Những điều chúng ta ưa
+thích thay đổi tương ứng với những người khác. Tương tác xã hội xảy ra qua những buổi gặp mặt
+trực tiếp. Nó cũng xảy ra qua những thư và thư điện tử điện tử, các tiền ấn phẩm và các bài báo
+trên các tạp chí. Một hiệu ứng của hệ thống toán học mang tính xã hội cao này là khuynh hướng
+các nhà toán học đi theo những vấn đề hợp mốt. Vì mục đích tạo ra các định lý toán học mới có
+lẽ là không mấy hiệu quả: sẽ tốt hợn nếu chúng ta có những nhà toán học phủ các lĩnh vực tri
+thức đồng đều hơn. Nhưng hầu hết các nhà toán học không thích đơn độc, và họ gặp vấn đề với
+việc mãi phấn khích với một chủ đề, ngay cả khi họ đã đạt được những tiến triển cá nhân, trừ phi
+họ có những đồng nghiệp để chia sẻ sự phấn khích của họ.</p>
+</div>
+<div class="paragraph">
+<p>Ngoài động lực nội tại và động lực mang tính xã hội không chính thức cho việc làm toán, chúng
+ta cũng được dẫn dắt bởi những lý do kinh tế và địa vị. Các nhà toán học, cũng giống như nhiều
+nhà khoa học khác, thực hiện rất nhiều đánh giá và bị đánh giá rất nhiều. Bắt đầu với những mức
+điểm, và tiếp tục qua những thư tiến cử, quyết định tuyển, quyết định đề bạt, báo cáo thẩm định,
+lời mời báo cáo, giải thưởng, &#8230;&#8203; chúng ta tham gia vào rất nhiều đánh giá, trong một hệ thống
+cạnh tranh khốc liệt.</p>
+</div>
+<div class="paragraph">
+<p>Jaffe và Quinn phân tích động lực để làm toán qua một hệ thống tiền tệ chung mà rất nhiều nhà
+toán học tin tưởng: sự trả công cho các định lý.</p>
+</div>
+<div class="paragraph">
+<p>Tôi nghĩ rằng sự nhấn mạnh chung của chúng ta vào sự trả công cho các định lý có một ảnh
+hưởng xấu lên tiến bộ của toán học. Nếu điều chúng ta đang thực hiện đẩy mạnh hiểu biết của
+con người về toán học, thì chúng ta sẽ được nhận biết và được đánh giá tốt hơn trong một hoạt
+động có phạm vi rộng hơn rất nhiều. Những người nhìn thấy cách chứng minh các định lý đang
+thực hiện nó trong phạm vi một cộng đồng toán học; họ không tự làm nó. Họ phụ thuộc vào hiểu
+biết toán học mà họ thu lượm được từ những nhà toán học khác. Một khi một định lý được chứng
+minh, cộng đồng toán học phụ thuộc vào mạng lưới xã hội để phân phối những ý tưởng tới những
+người mà có thể sử dụng chúng nhiều hơn – phương tiện in ấn là quá mờ mịt và cồng kềnh.</p>
+</div>
+<div class="paragraph">
+<p>Thậm chí nếu ai đó có một quan điểm hẹp hòi rằng cái mà chúng ta đang tạo ra là các định lý, thì
+tập thể vẫn là quan trọng. Bóng đá có thể coi là một ẩn dụ. Có thể có một hoặc hai bàn thắng thôi
+trong suốt cả trận đấu, được ghi bởi một hoặc hai cầu thủ. Nhưng điều đó không có nghĩa rằng
+những nỗ lực của tất cả các thủ khác là vô giá trị. Chúng ta không đánh giá các cầu thủ trong một
+đội bóng chỉ bởi việc họ có tự ghi bàn hay không; chúng ta đánh giá một đội bóng qua cách nó
+vận hành như một đội bóng.</p>
+</div>
+<div class="paragraph">
+<p>Trong toán học, thường xảy ra chuyện rằng một nhóm các nhà toán học đạt được sự tiến bộ với
+một tập hợp các ý tưởng nhất định. Có những định lý trên đường tiến bộ đó mà hầu như chắc
+chắn được chứng minh bởi một người này, hay người khác. Đôi khi nhóm các nhà toán học thậm
+chí có thể tiên đoán rằng những định lý này tựa như thế nào. Việc này khó hơn rất nhiều so với
+việc dự đoán xem ai sẽ thực sự chứng minh được định lý, mặc dù thường có một số ít "người nổi
+bật" mà có khả năng cao sẽ ghi điểm. Tuy nhiên, họ đang ở một vị trí mà có thể chứng minh
+những định lý kia nhờ tập hợp những nỗ lực của toàn đội. Toàn đội có một chức năng nữa, trong
+việc tiếp thu và sử dụng các định lý một khi chúng được chứng minh. Thậm chí nếu một người
+nào đó có thể chứng minh tất cả các định lý trên đường đi mà không cần trợ giúp, thì chúng sẽ bị
+bỏ phí nếu không còn ai khác học chúng.</p>
+</div>
+<div class="paragraph">
+<p>Có một hiện tượng thú vị liên quan tới những người "nổi bật". Thường xảy ra rằng ai đó ở mức
+trung bình chứng minh một định lý mà được chấp nhận rộng rãi như một kết quả giá trị. Vị thế
+của họ trong cộng đồng - thứ bậc của họ - ngay lập tức tăng đột ngột. Khi điều này xảy ra, họ
+nhanh chóng đạt hiệu suất cao hơn rất nhiều như một trung tâm của các ý tưởng và một nguồn
+cho các định lý. Tại sao? Trước tiên, có một sự tăng tiến lớn trong niềm tự tôn của bản thân, và sự
+tăng tiến hệ quả trong hiệu suất công việc. Thứ hai, khi vị thế của họ lớn mạnh hơn, mọi người
+đang ở gần trung tâm mạng lưới các ý tưởng-những người khác sẽ nhìn nhận họ nghiêm túc hơn.
+Điểm cuối cùng và có lẽ là quan trọng nhất, một đột phá toán học thường thể hiện một cách tư
+duy mới, và những phương cách hiệu quả của tư duy thường có thể áp dụng vào nhiều hơn một
+tình huống.</p>
+</div>
+<div class="paragraph">
+<p>Hiện tượng này thuyết phục tôi rằng cả cộng đồng toán học sẽ trở nên dần đạt hiệu suất cao hơn
+rất nhiều nếu chúng ta mở rộng tâm hồn vào những giá trị thực của công việc mà chúng ta đang
+thực hiện. Jaffe và Quinn đề xuất một hệ thống nhận biết các vai trò chia nhỏ thành "ức đoán" và
+"chứng minh". Một phép phân chia như vậy có thể duy trì niềm tin hoang đường rằng tiến bộ của
+chúng ta được đo bởi những đơn vị cho những định lý chuẩn được tìm ra. Nghe hơi có vẻ giống
+như sự ngụy biện của một người mà đã in ra một bảng 10000 số nguyên tố. Thứ mà chúng ta làm
+ra được là hiểu biết của con người. Chúng ta có rất nhiều cách khác nhau để hiểu và rất nhiều
+quá trình khác nhau mà góp phần xây dựng nên hiểu biết của chúng ta. Ta sẽ thỏa mãn hơn, có
+hiệu suất cao hơn, và hạnh phúc hơn nếu chúng ta ghi nhận và tập trung vào việc này.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_một_số_kinh_nghiệm_cá_nhân">6. Một số kinh nghiệm cá nhân</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bởi vì bài viết này nảy sinh từ sự phản chiếu giữa sự không tương thích trong kinh nghiệm của
+tôi với những mô tả của Jaffe và Quinn, tôi sẽ bàn về hai kinh nghiệm cá nhân, bao gồm cả kinh
+nghiệm mà họ đã ám chỉ tới.</p>
+</div>
+<div class="paragraph">
+<p>Tôi cảm thấy có gì đó ngu ngốc trong việc này, bởi vì tôi thực sự hối hận về những khía cạnh
+trong nghề nghiệp của mình: nếu tôi có thể làm mọi thứ một lần nữa với lợi ích từ những hiểu biết hiện tại về bản thân tôi và về tiến trình của toán học, thì có rất nhiều điều mà tôi hi vọng
+mình sẽ làm khác đi. Tôi hi vọng rằng qua việc kể về những kinh nghiệm này một cách thẳng
+thắn như tôi còn nhớ và hiểu về nó, tôi có thể giúp những người khác hiểu tốt hơn về tiến trình
+của toán học và học trước từ đó.</p>
+</div>
+<div class="paragraph">
+<p>Đầu tiên tôi sẽ bàn luận ngắn gọn về lý thuyết phân lá, chính là chủ đề đầu tiên mà tôi bắt đầu
+khi còn là học viên sau đại học (ở đây không quan trọng bạn có biết lý thuyết phân lá là gì hay
+không) Ở thời điểm đó, lý thuyết phân lá đã trở thành trung tâm của sự chú ý của các nhà tôpô
+hình học, những người nghiên cứu hệ động lực và các nhà hình học vi phân. Khá nhanh chóng,
+tôi đã chứng minh được một số định lý theo một cách rất ấn tượng. Tôi đã chứng minh một định
+lý phân loại cho sự phân lá, đưa ra điều kiện cần và đủ cho một đa tạp có một sự phân lá. Tôi đã
+chứng minh một số định lý đáng chú ý khác. Tôi viết một số bài báo đáng được kính nể và công
+bố những định lý quan trọng nhất. Thật khó để có đủ thời gian để viết để duy trì những gì tôi có
+thể chứng minh, và tôi đã xây dựng phần lưu trữ.</p>
+</div>
+<div class="paragraph">
+<p>Một hiện tượng thú vị đã xảy ra. Trong vòng vài năm một cuộc tháo lui đột ngột trong ngành đã
+bắt đầu diễn ra. Tôi đã nghe được từ khá nhiều các nhà toán học là họ đã đưa ra hay nhận được
+lời khuyên rằng đừng đi vào lý thuyết phân lá– họ đã nói rằng Thurston đã giải quyết sạch sẽ lý
+thuyết này rồi. Người ta nói với tôi rằng (không phải phàn nàn, mà là một lời khen) tôi đã giết
+chết lĩnh vực này. Những học viên sau đại học ngừng nghiên cứu lý thuyết phân lá, và khá nhanh
+chóng, tôi cũng hướng sự ưa thích của mình sang lĩnh vực khác.</p>
+</div>
+<div class="paragraph">
+<p>Tôi không tin rằng sự tháo lui xảy ra bởi vì lĩnh vực này đã cạn kiệt tiềm năng tri thức. Đã có (và
+vẫn còn) nhiều những câu hỏi thú vị và có lẽ là có thể tiếp cận được. Kể từ những năm tháng ấy,
+đã có những phát triển thú vị được một số ít các nhà toán học khác đưa ra, những người vẫn còn
+làm việc trong ngành hay mới tham gia, và vẫn có những tiến triển quan trọng trong những địa
+hạt lân cận mà tôi nghĩ rằng chúng sẽ tăng tốc cực nhanh nếu các nhà toán học vẫn tiếp tục theo
+đuổi lý thuyết phân lá một cách mạnh mẽ. Ngày nay, tôi nghĩ rằng có ít các nhà toán học, những
+người hiểu về bất kỳ thứ gì tiếp cận được trạng thái của nghệ thuật của sự phân lá như là nó đã
+tồn tại ở thời điểm đó, mặc dù có một vài phần trong lý thuyết phân lá, bao gồm cả những phát
+triển kể từ thời ấy, vẫn đang phát triển mạnh.</p>
+</div>
+<div class="paragraph">
+<p>Tôi tin rằng hai hiệu ứng mang tính sinh thái học là quan trọng hơn rất nhiều trong việc làm ngã
+lòng mọi người trong chủ đề này so với việc cạn kiệt nguồn tri thức đã xảy ra.</p>
+</div>
+<div class="paragraph">
+<p>Trước tiên, những kết quả mà tôi đã chứng minh (cũng như một số kết quả quan trọng của những
+người khác) đã được ghi lại theo một phong cách kinh khủng, thường thấy của các nhà toán học.
+Nó phụ thuộc nặng nề vào những người đọc mà chia sẻ được kiến thức căn bản và một số nhận
+thức nhất định. Lý thuyết phân lá còn non trẻ, là một ngành hẹp có nhiều cơ hội, và nền tảng của
+nó vẫn chưa được chuẩn hóa. Tôi không do dự trong việc vẽ ra bất kỳ thứ toán học nào mà tôi đã
+học được từ người khác. Những bài báo tôi viết đã không (và không thể) dành nhiều thời gian để
+giải thích nền tảng văn hóa. Chúng được ghi chép lại ở mức tư duy và kết luận đỉnh cao nhất mà
+tôi thường đạt được sau nhiều ngẫm nghĩ và nỗ lực. Tôi cũng bỏ đi những thông tin ngắn có giá
+trị hàm ẩn trong suy luận, chẳng hạn như “bất biến Godbillon-Vey đo mức nghiêng xoắn ốc của
+một sự phân lá”, mà vẫn còn bí ẩn với hầu hết những nhà toán học đã đọc nó. Việc này tạo ra
+một chướng ngại lớn: tôi nghĩ rằng hầu hết các học viên sau đại học và các nhà toán học đều bị
+nản lòng rằng quá khó để học và hiểu được các chứng minh của những định lý cốt yếu.</p>
+</div>
+<div class="paragraph">
+<p>Thứ hai là vấn đề rằng có gì trong ngành dành cho những người khác. Khi tôi bắt đầu làm việc
+với lý thuyết phân lá, tôi đã nghĩ rằng điều mà họ theo đuổi là một tập hợp các định lý mạnh đã
+được chứng minh mà có thể áp dụng để trả lời những vấn đề toán học lớn hơn. Nhưng đó chỉ là
+một phần của câu chuyện mà thôi. Hơn cả tri thức, mọi người muốn có được sự thấu hiểu mang
+tính cá nhân. Và trong hệ đánh giá đã đưa ra của chúng ta, họ cũng muốn và cần sự ghi nhận qua
+các định lý.</p>
+</div>
+<div class="paragraph">
+<p>Tôi sẽ bỏ qua vài năm để đến với chủ đề mà Jaffe và Quinn đã ám chỉ tới, khi tôi bắt đầu nghiên
+cứu các đa tạp ba chiều và quan hệ của chúng với hình học hyperbolic. (Một lần nữa, không có
+vấn đề gì lắm nếu bạn không biết đây là gì.) Tôi dần dần xây dựng được trong vài năm một trực
+quan nhất định với 3-đa tạp hyperbolic, với một tập hợp những cách xây dựng, các ví dụ và phép
+chứng minh (quá trình này thực ra bắt đầu khi tôi còn là sinh viên, và đã được ủng hộ rất mạnh
+bởi các áp dụng vào lý thuyết phân lá). Sau một thời gian, tôi đã đặt giả thuyết hay ước đoán rằng
+tất cả các 3-đa tạp đều có một cấu trúc hình học nhất định, giả thuyết này cuối cùng được biết
+đến dưới tên gọi giả thuyết hình học hóa. Khoảng hai hay ba năm sau đó, tôi đã chứng minh giả
+thuyết hình học hóa cho các đa tạp Haken. Nó là một định lý khó, và tôi đã dành một nỗ lực
+khổng lồ để nghĩ về nó. Khi tôi hoàn thiện phép chứng minh, tôi cũng đã dành nhiều công sức
+hơn nữa để kiểm tra phép chứng minh, tìm kiếm những điểm khó khăn và kiểm chứng nó một
+lần nữa trước những thông tin độc lập.</p>
+</div>
+<div class="paragraph">
+<p>Tôi muốn viết chi tiết hơn nữa về ý tưởng của mình khi tôi nói tôi đã chứng minh định lý này. Nó
+có nghĩa rằng tôi đã có một dòng các ý tưởng sáng sủa và hoàn thiện, bao gồm cả các chi tiết mà
+đã đứng vững trước rất nhiều lần kiểm tra của cả tôi và những người khác. Các nhà toán học có
+những phong cách tư duy khác nhau. Phong cách của tôi không phải là đưa ra các tổng quát hóa
+rộng nhưng bất cẩn mang tính định hướng và tạo cảm hứng: tôi thiết lập những mô hình tư duy
+cụ thể, và tôi tư duy về mọi điều qua đó. Vì thế chứng minh của tôi là khá đáng tin cậy. Tôi chưa
+gặp vấn đề với việc sao lưu lại những mệnh đề hay đưa ra những chi tiết về những thứ mà tôi đã
+chứng minh. Tôi làm khá tốt việc phát hiện lỗi sai trong suy luận của chính mình cũng như của
+những người khác.</p>
+</div>
+<div class="paragraph">
+<p>Tuy nhiên, đôi khi cũng có một yếu tố bị phát triển quá mạnh qua việc phiên dịch từ những mã
+hóa trong tư duy của riêng tôi tới những gì mà có thể truyền tải sang ai đó khác. Nền tảng giáo
+dục toán học của tôi là hơi độc lập và theo phong cách riêng, mà trong nhiều năm ròng tôi đã
+tự học rất nhiều thứ, tự phát triển các hình mẫu tư duyriêng cho việc nên nghĩ về toán học như
+thế nào. Việc này thường là một lợi thế rất lớn cho tôi trong việc tư duy về toán học, bởi vì sau
+này sẽ dễ dàng tiếp nhận những hình mẫu tư duy chuẩn được chia sẻ bởi những nhóm các nhà
+toán học khác. Điều này có nghĩa rằng một số khái niệm mà tôi sử dụng một cách tự do và tự
+nhiên trong tư duy của tôi lại là xa lạ với hầu hết các nhà toán học khác mà tôi nói chuyện cùng.
+Những hình mẫu và cấu trúc tư duycủa cá nhân tôi là tương tự về mặt đặc tính với những kiểu
+mẫu hình mà các nhóm các nhà toán học khác chia sẻ - nhưng chúng thường là những hình mẫu
+khác nhau. Ở thời điểm mà tôi hệ thống hóa giả thuyết hình học hóa, hiểu biết của tôi về hình
+học hyperbolic là một ví dụ tốt. Một ví dụ ngẫu nhiên tiếp theo là hiểu biết về các không gian tô
+pô hữu hạn, một chủ đề kỳ quặc mà có thể cho mượn ý tưởng tốt vào một mớ các câu hỏi nhưng
+nó không hoàn toàn đáng để phát triển trong bất kỳ trường hợp nào bởi vì có những lối diễn đạt
+loanh quanh luẩn quẩn ngăn trở nó.</p>
+</div>
+<div class="paragraph">
+<p>Không phải giả thuyết hình học hóa và cũng không phải chứng minh của nó cho các đa tạp Haken
+nằm trên đường đi của bất kỳ nhóm các nhà toán học nào vào thời điểm đó – nó đi ngược lại với các xu hướng trong tôpô 30 năm trước đó, và nó đã làm mọi người ngạc nhiên. Với hầu hết các
+nhà tôpô vào thời điểm đó, hình học hyperbolic là một ngành cần phải biết của toán học, mặc dù
+có những nhóm các nhà toán học khác như các nhà hình học vi phân, họ không hề hiểu nó dưới
+một số góc độ nhất định. Các nhà tôpô cần tốn một chút thời gian để hiểu giả thuyết hình học
+hóa là gì, nó có gì tốt, và tại sao nó lại xác đáng.</p>
+</div>
+<div class="paragraph">
+<p>Cùng thời điểm đó, tôi bắt đầu viết những ghi chép về hình học và tôpô của 3-đa tạp, cũng dùng
+cho khóa học sau đại học mà tôi đang dạy. Tôi phát nó cho một số ít người, rất lâu trước khi
+những người khác trên thế giới bắt đầu chép lại những bản sao. Danh sách thư điện tử lớn lên tới
+khoảng 1200 người, những người mà tôi đã gửi các ghi chép vài tháng một lần. Tôi cố gắng trao
+đổi các ý tưởng thực sự của tôi trong những ghi chép ấy. Mọi người thực hiện nhiều seminar dựa
+trên các ghi chép của tôi và tôi nhận được rất nhiều phản hồi. Tràn ngập trong các phản hồi là
+những câu đại loại như “Những ghi chép của ông thật đầy cảm hứng và đẹp đẽ, nhưng tôi phải
+nói với ông rằng chúng tôi đã phải dành tới ba tuần trong seminar của mình để hiểu những chi
+tiết trong \S n.n. Chắc chắn là cần thêm những giải thích.”</p>
+</div>
+<div class="paragraph">
+<p>Tôi cũng dành nhiều lời giới thiệu tới những nhóm các nhà toán học về ý tưởng nghiên cứu các
+3-đa tạp từ quan điểm hình học và về chứng minh của giả thuyết hình học hóa cho các đa tạp
+Haken. Ban đầu, chủ đề này là xa lạ với hầu hết mọi người. Thật khó để trao đổi những cơ sở
+nằm trong đầu tôi, không phải trong cộng đồng toán học. Có một vài lý thuyết toán học mà có
+ảnh hưởng lên đám những ý tưởng này: tôpô ba-đa tạp, những nhóm Klein, các hệ động lực, tôpô
+hình học, các nhóm con rời rạc của những nhóm Lie rời rạc, lý thuyết phân lá, các không gian
+Teichmuller, đồng phôi giả Anosov, lý thuyết nhóm hình học, cũng như là hình học hyperbolic.</p>
+</div>
+<div class="paragraph">
+<p>Chúng tôi tổ chức một workshop của Hiệp hội Toán học Mỹ ở Bowdoin vào năm 1980, nơi nhiều
+nhà toán học trong những ngành hẹp như tôpô số chiều thấp, hệ động lực và nhóm Klein tham
+dự.</p>
+</div>
+<div class="paragraph">
+<p>Đó là một kinh nghiệm thú vị trong việc trao đổi văn hóa. Câu chuyện đột ngột trở nên rõ ràng
+rằng các phép chứng minh phụ thuộc thế nào vào các thính giả. Chúng ta chứng minh vài thứ gì
+đó trong một bối cảnh xã hội và nhắm tới một số thính giả nhất định. Một vài phần của phép
+chứng minh này tôi có thể trao đổi trong vòng hai phút với các nhà tôpô nhưng các nhà giải tích
+sẽ cần tới một bài giảng dài một giờ để họ có thể bắt đầu hiểu được. Tương tự như vậy, cũng có
+một vài thứ mà có thể nói trong vòng hai phút cho các nhà giải tích mà sẽ tốn mất một giờ trước
+khi các nhà tôpô bắt đầu nhận thức được. Và cũng có rất nhiều phần khác trong phép chứng minh
+cần hai phút để diễn đạt trong phần tóm tắt, nhưng không ai trong số các thính giả ở thời điểm đó
+có đủ cơ sở trí tuệ để có thể hiểu trong ít hơn một giờ.</p>
+</div>
+<div class="paragraph">
+<p>Ở thời điểm đó, thực tế không hề có cơ sở và ngữ cảnh nào cho định lý này, do vậy sự phát triển
+từ việc làm thế nào mà một ý tưởng khởi nguồn từ tâm trí của tôi tới những gì tôi phải nói để
+khiến nó trở nên có thể hiểu được, không đề cập tới chuyện thính giả phải hi sinh để hiểu nó, là
+rất ấn tượng.</p>
+</div>
+<div class="paragraph">
+<p>Dựa trên kinh nghiệm của tôi về lý thuyết phân lá và để đáp trả những áp lực xã hội, tôi tập trung
+hầu hết sự chú ý của mình vào việc phát triển và giới thiệu cơ sở của những gì tôi viết và những
+gì tôi nói với mọi người. Tôi đã giải thích chi tiết cho vài người đã “sẵn sàng” với nó. Tôi viết
+một số bài báo, đưa ra những phần tồn tại độc lập trong chứng minh của giả thuyết hình học hóa
+cho các đa tạp Haken – với những bài báo này, tôi gần như không nhận được phản hồi nào cả.</p>
+</div>
+<div class="paragraph">
+<p>Tương tự như vậy, mãi tới sau này, một vài người mới thực sự vượt qua những phần khó nhất và
+sâu sắc nhất trong những ghi chép của tôi.</p>
+</div>
+<div class="paragraph">
+<p>Kết quả là bây giờ khá nhiều các nhà toán học đã có những hiểu biết mà họ đã rất thiếu khi mới
+bắt đầu: một hiểu biết có hiệu lực về những khái niệm và cơ sở mà là tự nhiên với ngành này. Đã
+từng có và sẽ còn tiếp tục có nhiều hoạt động toán học lớn mạnh. Bằng cách tập trung vào xây
+dựng cơ sở, giải thích và công bố các định nghĩa và cách thức tư duy nhưng chậm rãi trong việc
+phát biểu và công bố các phép chứng minh của tất cả các “định lý” mà tôi đã biết làm thế nào để
+chứng minh, tôi dành cơ hội cho mọi người để nhận lấy danh tiếng. Vẫn còn cơ hội cho mọi người
+để khám phá và công bố các chứng minh khác của định lý hình học hóa. Những chứng minh này
+giúp phát triển các khái niệm toán học mà tự thân là khá thú vị và thúc đẩy toán học đi xa hơn.</p>
+</div>
+<div class="paragraph">
+<p>Điều mà các nhà toán học muốn và cần nhất từ tôi đó là học cách tư duy chứ thực tế không phải
+là học cách chứng minh giả thuyết hình học hóa cho các đa tạp Haken. Không mấy chắc chắn
+rằng chứng minh của giả thuyết hình học hóa tổng quát sẽ bao hàm cả việc đẩy chính nó đi xa
+hơn. Một vấn đề nữa là đôi khi người ta cần hay muốn một kết quả được chấp nhận và chính xác
+không chỉ bởi vì để học nó, mà còn là từ đó họ có thể trích dẫn lại nó hay dựa trên nó.</p>
+</div>
+<div class="paragraph">
+<p>Các nhà toán học thực ra đã rất nhanh chóng chấp nhận phép chứng minh của tôi, và để bắt đầu
+trích dẫn hay sử dụng nó dựa trên bất cứ tài liệu nào sẵn có, trên kinh nghiệm của họ cùng niềm
+tin ở tôi và trên sự chấp thuận và ý kiến riêng của các chuyên gia, những người mà tôi đã sử dụng
+rất nhiều thời gian để thảo luận về phép chứng minh. Định lý này giờ đã được ghi lại, qua những
+nguồn được công bố, với tôi và một số người khác là tác giả, nên hầu hết mọi người đều cảm
+thấy an toàn khi trích dẫn lại nó; những người trong ngành chắc chắn sẽ không đòi hỏi tôi về tính
+chính xác của nó, hay biểu lộ cho tôi thấy sự cần thiết về các chi tiết mà không có sẵn.</p>
+</div>
+<div class="paragraph">
+<p>Không phải tất cả các phép chứng minh đều có cùng một vai trò trong giàn ý logic mà chúng ta
+đang xây dựng cho toán học. Phép chứng minh đặc thù này có lẽ chỉ có một giá trị logic tạm thời,
+mặc dù nó có một giá trị động lực lớn lao trong việc giúp đỡ ủng hộ một cái nhìn nhất định vào
+cấu trúc của 3-đa tạp. Giả thuyết hình học hóa tổng quát vẫn là một giả thuyết. Nó đã được chứng
+minh trong rất nhiều trường hợp, và nó cũng được ủng hộ bởi nhiều bằng chứng bằng máy tính,
+nhưng nó vẫn chưa được chứng minh trong trường hợp tổng quát. Tôi bị thuyết phục rằng phép
+chứng minh tổng quát sẽ được khám phá ra; tôi hi vọng thế đã từ rất rất nhiều năm trước đây rồi.
+Ở điểm này, phép chứng minh của các trường hợp đặc biệt thì gần như sẽ trở nên lỗi thời.</p>
+</div>
+<div class="paragraph">
+<p>Trong khi đó, những người muốn hiểu các kỹ thuật hình học thì tốt hơn là nên bắt đầu với giả
+định: “Cho M3 là một đa tạp mà có nhận một phân rã hình học” bởi vì nó tổng quát hơn “Cho
+M3 là một đa tạp Haken”. Những người không muốn sử dụng kỹ thuật hay những ai đang nghi
+ngờ nó có thể lờ nó đi. Thậm chí là cả khi một định lý về các đa tạp Haken có thể được chứng
+minh bằng các kỹ thuật hình học, việc tìm kiếm những kỹ thuật tôpô để chứng minh nó vẫn có
+giá trị cao.</p>
+</div>
+<div class="paragraph">
+<p>Trong tình huống này (mà vẫn còn tiếp tục) tôi nghĩ rằng tôi phải cố gắng để loại bỏ hai kết quả
+xấu nhất cho mình: hoặc không hé lộ những gì tôi đã khám phá, giữ nó cho riêng mình (có lẽ cả
+với niềm hi vọng chứng minh giả thuyết Poincare) hay là để giới thiệu một lý thuyết kín kẽ và rất
+khó học mà có người nào để giữ nó tồn tại và phát triển.</p>
+</div>
+<div class="paragraph">
+<p>Tôi có thể dễ dàng nói rõ về những tiếc nuối trong sự nghiệp của mình. Tôi đã không công bố
+nhiều đến mức nên làm. Có một số dự án toán học ngoài giả thuyết hình học hóa cho các đa tạp Haken mà tôi đã không phát biểu thật tốt trước cộng đồng toán học. Khi tập trung hơn vào phát
+triển cơ sở thay vì những định lý ở cấp cao nhất trong lý thuyết hình học của 3-đa tạp, tôi trở nên
+hơi xa rời trong khi chủ đề này vẫn tiếp tục phát triển và tôi đã không thúc đẩy một cách tích
+cực cũng như hiệu quả của ngành này, hay các sự nghiệp của những người tham gia nghiên cứu
+nó. (Nhưng có vẻ với tôi, một vài mức độ xa rời gần như là một sản phẩm phụ không thể tránh
+được trong việc hướng dẫn các học viên sau đại học và số khác: để thực sự chuyển các hướng
+nghiên cứu đích thực sang những lĩnh vực khác, cần phải gạt bỏ và chặn lại những nghĩ nặng nề
+về những chuyện ấy).</p>
+</div>
+<div class="paragraph">
+<p>Mặt khác, tôi đã trở nên bận bịu và có hiệu suất cao hơn, trong nhiều hoạt động khác. Hệ thống
+của chúng ta không tạo được thêm thời gian cho những người như tôi sử dụng để viết và nghiên
+cứu; thay vào đó nó làm tràn ngập chúng tôi bởi rất nhiều cơ hội cho việc làm thêm và phản ứng
+chính của tôi là nói “có” với tất cả những yêu cầu và cơ hội đó. Tôi đã dành nhiều nỗ lực vào
+các hoạt động không tạo ra danh tiếng mà tôi coi trọng như là tôi coi trọng việc chứng minh các
+định lý: nền chính trị toán học, chỉnh sửa các ghi chép của tôi thành một quyển sách với một tiêu
+chuẩn cao của sự trao đổi, khám phá về tính toán trong toán học, giáo dục toán học, phát triển
+những hình thức trao đổi toán học mới qua Trung tâm Hình học (giống như thí nghiệm đầu tiên
+của chúng tôi, video “Not Knot”), chỉ đạo MSRI, ..vv..</p>
+</div>
+<div class="paragraph">
+<p>Tôi nghĩ rằng những gì tôi đã làm không thể cực đại hóa “danh tiếng” của tôi được. Tôi đã ở
+trong một vị trí mà không có một nhu cầu lớn phải cạnh tranh để giành nhiều hơn sự công nhận.
+Thực ra tôi bắt đầu thấy cảm thấy bị thách thức mạnh mẽ từ những thứ khác, bên cạnh việc chứng
+minh những định lý mới.</p>
+</div>
+<div class="paragraph">
+<p>Tôi thực sự tin rằng những hoạt động của tôi đã làm tốt việc khuyến khích toán học.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-09-09 15:09:27 +0700
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(","\\)"]],
+    displayMath: [["\\[","\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$","\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

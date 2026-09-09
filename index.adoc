@@ -1,0 +1,747 @@
+= Về chứng minh và sự tiến bộ trong toán học
+Author Name
+:author: William P.Thurston
+:date: Ngày 15 tháng 6 năm 2013
+:doctype: book
+:toc: left
+:numbered: 
+:imagesdir: images 
+:stem: latexmath
+
+[preface]
+= Tóm tắt nội dung
+
+Bài viết này trình bày về bản chất của phép chứng minh và tiến bộ trong toán học, được khuyến khích
+bởi bài báo của Jaffe và Quinn, _“Theoretical Mathematics: Toward a cultural synthesis of mathematics
+and theoretical physics”_ (Toán học lý thuyết: Hướng tới sự tổng hợp mang tính văn hóa của toán học
+và vật lý lý thuyết). Bài báo của họ nêu lên nhiều vấn đề thú vị mà các nhà toán học cần quan tâm tới
+nhiều hơn, nhưng nó cũng duy trì một số niềm tin và thái độ cần bị nghi ngờ và cần được kiểm chứng.
+
+Bài báo có một đoạn miêu tả vài phần trong công trình của tôi theo một cách chệch đi với kinh
+nghiệm của tôi, và nó cũng chệch khỏi những quan sát của mọi người trong lĩnh vực mà tôi đã từng
+thảo luận cùng về nó như một phép thử thực tế.
+
+Sau một hồi suy nghĩ, tôi thấy có vẻ như những gì Jaffe và Quinn viết là một ví dụ cho hiện tượng
+rằng mọi người thấy cái mà họ được định hướng để thấy. Sự mô tả của Jaffe và Quinn thu được qua
+việc chiếu tính xã hội học của toán học lên một thang kích thước một chiều (ức đoán và chặt chẽ), bỏ
+qua rất nhiều hiện tượng cơ bản.
+
+Nhiều phản hồi tới bài báo của Jaffe và Quinn đã được gửi đi bởi rất nhiều những nhà toán học,
+và tôi kỳ vọng rằng nó nhận được nhiều phân tích và phản biện cụ thể từ những người khác. Bởi vậy,
+trong bài viết này, tôi sẽ tập trung vào khía cạnh tích cực thay vì khía cạnh phản phủ định. Tôi sẽ
+trình bày quan điểm của mình về tiến trình của toán học, chỉ đôi khi nhắc đến bài báo của Jaffe và
+Quinn qua việc so sánh.
+
+Để thử lột bỏ các lớp của các giả thiết, điều quan trọng là phải thử bắt đầu với những câu hỏi
+đúng:
+
+## Các nhà toán học đạt được thành quả gì ? 
+
+Có nhiều vấn đề bị che khuất trong câu hỏi này, mà tôi đã cố gắng để diễn đạt lại theo cách không giả
+định trước bản chất của câu trả lời.
+
+Chẳng hạn, quả thực không tốt nếu ta bắt đầu với câu hỏi 
+
+[.text-center]
+_Các nhà toán học chứng minh các định lý như thế nào?_ 
+
+Câu hỏi này dẫn đến một chủ đề thú vị, nhưng để bắt đầu với nó ta phải đánh giá hai giả định ẩn giấu: 
+
+. Rằng tồn tại lý thuyết và thực tiễn khách quan, bất biến và được kiểm chứng chắc chắn của phép
+chứng minh toán học. 
+. Rằng tiến bộ được tạo ra bởi các nhà toán học bao gồm việc chứng minh những định lý.
+
+Những giả thuyết này đáng để ta kiểm chứng, thay vì chấp nhận chúng như là những điều hiển nhiên và
+tiếp tục tiến lên từ chúng.
+
+Thậm chí, câu hỏi cũng không phải là
+
+[.text-center]
+_Các nhà toán học đã tạo ra những tiến bộ trong toán học như thế nào ?_
+
+Thay vì đó dạng câu hỏi cụ thể (và quan trọng) mà tôi ưa thích là
+
+[.text-center]
+_Làm thế nào mà các nhà toán học làm thúc đẩy hiểu biết của con người về toán học ?_
+
+Câu hỏi này đem đến một điều căn bản và có tính lan tỏa: việc mà chúng ta đang làm là tìm những cách
+giúp con người hiểu và tư duy về toán học. 
+
+Sự phát triển đột phá của máy vi tính đã giúp làm nổi bật luận điểm này, bởi vì các máy tính và con
+người rất khác nhau. Chẳng hạn, khi Appel và Haken hoàn tất phép chứng minh cho định lý 4 màu, sử
+dụng một khối lượng tính toán tự động khổng lồ, nó đã gây ra rất nhiều tranh cãi. Tôi hiểu rằng sự tranh
+cãi này không mấy liên quan đến tính xác thực của định lý hay sự chính xác của phép chứng minh mà
+người ta hoài nghi. Thay vì đó, nó phản ánh một niềm mong mỏi liên tục cho hiểu biết của con người về
+một phép chứng minh, ngoài việc biết rằng định lý là đúng.
+
+Ở một mức độ bình dị hơn, thường thì người ta nỗ lực sử dụng các máy tính để thực hiện những tính
+toán ở thang kích thước lớn cho những thứ mà họ đã hoàn thành ở thang nhỏ hơn bằng tay. Họ có thể
+in ra một bảng gồm 10000 số nguyên tố đầu tiên, rồi chỉ để thấy rằng, sau cùng thứ mà họ in ra chẳng
+phải là thứ mà họ đã mong mỏi. Qua những việc như thế, họ khám phá ra rằng thứ mà họ thực sự muốn
+thường không phải là một tập hợp của“các đáp án” – thứ họ muốn là sự thấu hiểu.
+
+Có vẻ như luẩn quẩn khi nói rằng điều mà các nhà toán học đang hoàn thành tốt là thúc đẩy hiểu biết
+của con người về toán học. Tôi sẽ không thử giải quyết vấn đề này bằng việc thảo luận toán học là gì, bởi
+vì nó sẽ đưa chúng ta đi lạc đề. Các nhà toán học thường cảm thấy rằng họ biết toán học là gì, nhưng
+cũng thấy rằng thật khó để trực tiếp đưa ra một định nghĩa tốt. Thực sự sẽ rất thú vị khi thử đặt vấn
+đề như vậy. Với tôi, câu trả lời “lý thuyết của những quy luật hình thức” là sát nhất, nhưng để thảo luận
+về nó thì lại phải cần thêm một bài viết khác mất.
+
+Liệu rằng, khi nhấn mạnh rằng toán học có một đặc tính đệ quy căn bản thì sự khó khăn trong việc trực
+tiếp đưa ra một định nghĩa tốt là một vấn đề mang tính bản chất? Cùng với những quan điểm này, chúng
+ta có thể nói rằng toán học là một ngành tối giản nhất thỏa mãn những điều kiện sau:
+
+* Toán học bao gồm các số tự nhiên, hình học Euclid trong mặt phẳng và không gian
+* Toán học là ngành mà các nhà toán học nghiên cứu.
+* Các nhà toán học là những người thúc đẩy tiến bộ của nhân loại trong hiểu biết về toán học. 
+
+Nói cách khác, khi toán học tiến bộ, chúng ta thu nạp nó vào tư duy của mình. Khi tiến trình tư duy của
+chúng ta trở nên phức tạp hơn, chúng ta tạo ra thêm những khái niệm và cấu trúc toán học mới: Chủ đề
+của toán học thay đổi để phản ánh cách chúng ta suy nghĩ. 
+
+Nếu những gì chúng ta đang làm là xây dựng các cách tư duy mới hơn, thì chiều tâm lý và xã hội là căn
+bản cho một mô hình tốt cho tiến bộ của toán học. Những chiều này không xuất hiện trong mô hình phổ
+biến. Nói một cách châm biếm, mô hình thường thấy bao gồm
+
+*D.* Các nhà toán học bắt đầu từ những cấu trúc toán học cơ bản và một tập hợp các tiên đề “cho trước”
+về những cấu trúc ấy mà 
+
+*T.* có nhiều câu hỏi quan trọng cần được trả lời về những cấu trúc mà có thể được phát biểu như là
+những định lý toán học hình thức, và
+
+*P.* nhiệm vụ của các nhà toán học là tìm ra một cách suy diễn từ những tiên đề tới các định lý hay đưa ra sự phủ định. 
+
+Chúng ta có thể gọi đây là mô hình định nghĩa - định lý - chứng minh (DTP) của toán học.
+
+Một khó khăn rõ ràng với mô hình DTP đó là nó không thể giải thích nguồn gốc của các câu hỏi. Jaffe
+và Quinn đã thảo luận về một ức đoán (mà họ đã dán cho một cái nhãn không mấy thích hợp đó là _“toán
+học lý thuyết”_) như là những thành phần bổ sung quan trọng. Ức đoán này bao gồm việc thiết lập các
+giả thuyết, đặt ra những câu hỏi và đưa ra những phỏng đoán thông minh cũng như các lập luận mang
+tính khám phá về điều có thể đúng.
+
+Mô hình DTP của Jaffe và Quinn vẫn không thành công trong việc chỉ ra một số vấn đề căn bản. Chúng
+ta không cố gắng đạt được một mức trừu tượng nhất định cho các định nghĩa, định lý, và chứng minh.
+Thước đo cho thành công của chúng ta đó là chúng ta có giúp được con người hiểu và tư duy về toán học
+một cách sáng sủa và hiệu quả hơn hay không.
+
+Bởi vậy, chúng ta cần phải tự hỏi mình: 
+
+## Con người hiểu về toán học như thế nào ? 
+
+Đây là một câu hỏi cực hóc búa. Hiểu biết là một vấn đề cá nhân và mang tính nội tại mà khó có thể
+hoàn toàn nhận biết, thấu hiểu và thường là khó có thể trao đổi với nhau được. Ở đây, chỉ có thể đề cập
+sơ sơ tới nó mà thôi.
+
+Con người thường có nhiều cách hiểu khác nhau về những khái niệm toán học. Để minh họa điều này,
+tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau,
+nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn
+toàn thích hợp. Đạo hàm có thể được hiểu như:
+
+. Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi
+vô cùng nhỏ của hàm số.
+. Tính ký hiệu: Đạo hàm của latexmath:[x^n] là latexmath:[nx^{n-1}], đào hàm của latexmath:[\sin x] là latexmath:[\cos x] đạo hàm của latexmath:[f \cdot g] là latexmath:[f' \cdot g * g'], ..vv..
+. Một cách logic: latexmath:[f'(x) = d] nếu và chỉ nếu với mỗi latexmath:[\epsilon] tồn tại latexmath:[\delta] sao cho khi latexmath:[0 < |\Delta x| < \delta], 
+
+[latexmath]
+++++
+\left|\frac{f(x+\Delta x) - f(x)}{\Delta x} - d \right| < \delta 
+++++
+
+[start=4]
+. Một cách hình học: Đạo hàm là hệ số góc của một tiếp tuyến với đồ thị hàm số, nếu đồ thị có tiếp tuyến.
+. Tốc độ thay đổi: Tốc độ tức thời của latexmath:[f(t)], với latexmath:[t] là thời gian. 
+. Xấp xỉ: Đạo hàm của một hàm số là xấp xỉ tuyến tính tốt nhất của hàm số ở lân cận của một điểm. 
+. Vi mô : Đạo hàm của một hàm số là giới hạn bạn thu được qua việc quan sát nó bằng một kính hiển vi với độ phóng đại ngày càng tăng.
+
+Đây là một danh sách các cách _suy nghĩ_ hay _tiếp nhận_ khác nhau về khái niệm đạo hàm, thay vì một danh sách các định nghĩa mang tính lô-gic. Nếu không có những nỗ lực to lớn để bảo toàn phong thái và đặc trưng của nhận thức nguyên thủy của con người, sự khác biệt sẽ bắt đầu tan biến ngay khi những
+khái niệm tư duy được dịch sang những định nghĩa chính xác, mang tính hình thức và cụ thể.
+
+Tôi nhớ rằng mình đã tiếp thu mỗi một trong những khái niệm trên như điều gì đó mới mẻ và thú vị, dành nhiều thời gian, nỗ lực để suy nghĩ cẩn thận và thực hành cùng với mỗi một trong chúng, rồi đồng nhất chúng với nhau. Tôi cũng không quên sau đó quay trở lại để xem xét những khái niệm khác nhau này với những ý nghĩa và hiểu biết bổ sung.
+
+Danh sách còn tiếp tục, không có lý do gì để nó phải ngừng lại cả. Một mục xa hơn bên dưới danh sách  có thể giúp ích cho việc minh họa cho điều này. Chúng ta có thể nghĩ rằng ta đã biết tất cả mọi điều để nói về một chủ đề nhất định, nhưng những vẫn luôn có những góc nhìn mới ở đâu đó.
+
+Hơn thế nữa, một hình ảnh rõ ràng trong sáng của người này lại là nỗi ám ảnh với người khác: 
+
+[start=37]
+. Đạo hàm của một hàm số thực latexmath:[f] trong một miền latexmath:[\mathbb{D}] là thành phần Lagrange của phân thớ đối tiếp xúc latexmath:[T * (\mathbb{D})] mà đưa ra dạng liên thông cho liên thông dẹt trên latexmath:[\mathbb{R}]- phân thứ tầm thường latexmath:[\mathbb{D} \times \mathbb{R}] mà ở đó đồ thị latexmath:[f] là song song. 
+
+Những khác biệt này không phải chỉ là sự tò mò. Suy nghĩ của con người và tri thức không vận hành trên một đường đơn lẻ, giống như chiếc máy vi tính với duy nhất một bộ vi xử lý. Não bộ và tâm trí chúng ta có vẻ như được tổ chức trong một mớ những thành phần riêng biệt đầy sức mạnh. Những thành phần này vận hành cùng nhau một cách lỏng lẻo, _“truyền đạt”_ cho nhau ở mức tổ chức cao thay vì ở mức tổ chức thấp.
+
+Dưới đây là một cách phân loại chính, có vai trò quan trọng trong việc tư duy toán học 
+
+. Ngôn ngữ của con người. Chúng ta có những phương tiện có mục tiêu đặc trưng và đầy sức mạnh cho việc nói và hiểu về ngôn ngữ của con người, những thứ cũng gắn với việc đọc và viết. Phương tiện ngôn ngữ của chúng ta là một công cụ quan trọng cho việc tư duy, chứ không chỉ riêng cho việc giao tiếp. Một ví dụ thô đó là công thức nghiệm của phương trình bậc hai một ẩn, mà nhiều người
+có thể vẫn còn nhớ qua câu hát ngắn "_ex equals minus bee plus or minus the square root of bee squared minus four ay see over two ay_"  (x bằng với trừ b cộng trừ căn bậc hai của b bình phương trừ bốn ac trên hai a). Ngôn ngữ toán học của các ký hiệu được gắn kết chặt chẽ với phương tiện
+ngôn ngữ của con người. Giữa những ký hiệu toán học phân mảnh, thứ có ý nghĩa với hầu hết sinh viên học giải tích chỉ là một động từ, =. Đây là lý do vì sao các sinh viên lại sử dụng nó khi họ thấy cần một động từ. Hầu hết những ai đã dạy lý thuyết vi phân và tích phân ở Mỹ đều đã từng thấy các sinh viên viết một cách bản năng kiểu như latexmath:[x^3 = 3x^2] hay đại loại tương tự như vậy.
+. Tầm nhìn, cảm quan không gian, cảm quan vận động. Con người có những phương tiện mạnh để thu nạp thông tin một cách trực quan hay theo cảm quan vận động, và tư duy với cảm quan không gian của họ. Mặt khác, họ không có một có một công cụ sẵn có thực sự tốt để đảo ngược góc nhìn,
+tức là chuyển một hiểu biết nội tại về không gian thành một bức ảnh hai chiều. Hệ quả là, các nhà
+toán học thường có ít hình vẽ hơn hoặc có hình vẽ xấu hơn trong các bài báo hay những cuốn sách
+của họ so với trong đầu họ. 
++ 
+Một hiện tượng thú vị trong việc tư duy về không gian đó là kích thước tạo nên khác biệt lớn. Chúng ta có thể nghĩ về những vật thể nhỏ bé trong bàn tay mình, hay những cấu trúc to lớn hơn như cỡ cơ thể người mà chúng ta quét, hay về các cấu trúc không gian bao quanh chúng ta mà ta chuyển động quanh bên trong. Chúng ta có khuynh hướng tư duy một cách hiệu quả hơn với hình
+ảnh về không gian trên một thang kích thước lớn hơn: như là nếu não bộ của chúng ta tiếp nhận những thứ to lớn hơn một cách chặt chẽ hơn và có thể dành cho chúng nhiều năng lượng hơn.
+
+[start=3]
+. Lô-gic và diễn dịch. Chúng ta có một số cách thức sẵn có để suy luận và sắp xếp mọi thứ cùng nhau
+liên quan với cách mà chúng ta đưa ra các suy luận lô-gic: Nguyên nhân và kết quả (liên quan với
+những gì ẩn dấu), phản chứng hay phủ định, . . . 
++ 
+Có vẻ như các nhà toán học không hoàn toàn dựa trên những quy tắc hình thức của suy luận như là họ nghĩ. Thay vì vậy, họ giữ một lượng rất ít cấu trúc lô-gic của một phép chứng minh trong tâm trí họ, phân các phép chứng minh thành những kết quả trung gian mà nhờ đó họ không phải giữ quá nhiều lô-gic cùng một lúc. Thực tế, thường thấy rằng nhiều nhà toán học xuất chúng còn
+không biết đến cách dùng các lượng từ thế nào cho chuẩn(với mọi hay tồn tại,) nhưng tất cả các nhà toán học đều thực hiện được những suy luận mà họ đã mã hóa.
++ 
+Thật thú vị là mặc dù _"hoặc"_, _"và"_ hay _"suy ra"_ có những cách sử dụng hình thức như nhau, chúng ta lại nghĩ về _"hoặc"_ hay _"và"_ như là liên từ, còn _"suy ra"_ là một động từ.
+
+[start=4]
+. Trực giác, liên hệ, ẩn dụ. Con người có những công cụ tuyệt vời để cảm nhận về nhiều thứ mà họ không cần biết nó đến từ đâu (trực giác), để cảm nhận về những hiện tượng hay tình cảnh hay đối tượng nào đó giống thứ gì khác (liên hệ), và để xây dựng hay kiểm tra những liên kết và so sánh,
+mang trong tâm trí hai thứ cùng một lúc (ẩn dụ). Những công cụ này là khá quan trọng với toán học. Với riêng tôi, tôi đã dành nhiều nỗ lực để _"lắng nghe"_ trực giác và tư duy liên hệ của mình, rồi xây dựng chúng thành những ẩn dụ và liên kết. Việc này bao hàm một kiểu tập trung và giữ tâm trí bình lặng một cách đồng thời. Ngôn từ, logic và những bức tranh chi tiết rầm rập chạy quanh có thể ngăn chặn trực giác và tư duy liên hệ.
+. Kích thích-phản ứng. Điểm này thường được nhấn mạnh ở trong các trường học; chẳng hạn, nếu bạn thấy latexmath:[3927 \times 253], bạn viết số này lên trên số kia và vẽ một đường thẳng bên dưới, v.v. Đây cũng
+là một điều quan trọng trong nghiên cứu toán học: nhìn thấy hình vẽ của một nút, tôi sẽ viết ra một biểu diễn cho nhóm cơ bản của phần bù của nó bằng một quy trình tương tự với thuật toán nhân.
+. Tiến trình và thời gian. Chúng ta có một công cụ để nghĩ về những quá trình hay một chuỗi những hành động có thể thường được dùng để thu được hiệu quả tốt trong suy luận toán học. Một cách hiểu về hàm số: đấy là một tác động, một quá trình, đi từ miền xác định tới miền giá trị. Suy nghĩ
+này thực sự có giá trị khi lấy hợp thành của các hàm số. Một ứng dụng khác của công cụ này đó là ghi nhớ những phép chứng minh: người ta thường ghi nhớ một phép chứng minh như một quá trình bao gồm một vài bước. Trong tôpô, khái niệm đồng luân thường hay được hiểu nhất là như một quá trình theo thời gian. Xét về mặt toán học, thời gian cũng không khác gì với việc thêm vào
+một trục tọa độ không gian, nhưng bởi vì con người tương tác với nó theo một cách tương đối khác, nên nó lại rất khác về mặt tâm lý. 
+
+## Hiểu biết toán học được truyền đạt nhứ thế nào ? 
+
+Việc truyền đạt hiểu biết từ người này sang người khác là không tự động. Nó khó khăn và mẹo mực. Bởi vậy, để phân tích hiểu biết của con người về toán học, việc quan trọng là phải biết _ai hiểu_, _hiểu gì_, và _khi nào thì hiểu_.
+
+Các nhà toán học đã phát triển những thói quen giao tiếp, thường hơi ... bất bình thường. Bất cứ ở đâu những nhà tổ chức hội thảo cũng động viên người trình bày giải thích nội dung bằng những thuật ngữ cơ bản. Tuy nhiên, hầu như thính giả ở hội thảo cỡ trung bình nhận được ít giá trị từ nó. Có lẽ họ đã mất dấu sau năm phút đầu tiên, và ngồi im lặng trong 55 phút còn lại. Hay có lẽ họ nhanh chóng mất hứng thú bởi vì người báo cáo đi quá sâu vào chi tiết mà không đưa ra bất kỳ suy luận nào để đánh giá chúng. Ở cuối buổi báo cáo, chỉ một số ít các nhà toán học làm gần với lĩnh vực của báo cáo viên đặt một hay hai câu hỏi để tránh khỏi phải xấu hổ.
+
+Quy luật này cũng tương tự với những gì thường xảy ra trong lớp học, khi chúng ta nói về thực trạng rằng chúng ta nghĩ các sinh viên _"phải"_ học, trong khi các sinh viên lại cố gắng nắm lấy những vấn đề cơ bản hơn trong việc học ngôn ngữ của chúng ta và dự đoán mô hình tư duy của chúng ta. Các cuốn sách bù đắp cho việc này bằng cách đưa ra cách giải tất cả các dạng bài tập về nhà. Các giáo sư bù đắp lại bằng cách đưa ra các bài tập về nhà và bài kiểm tra thường là dễ hơn những gì được _"phủ"_ trong khóa học, và sau đó cho điểm bài tập về nhà và bài kiểm tra theo một thang điểm đòi hỏi rất ít sự thấu hiểu. Chúng ta cho rằng vấn đề nằm ở các sinh viên chứ không phải ở cách truyền đạt: Rằng các sinh viên hoặc không đủ khả năng để nắm bắt, hoặc là chẳng thèm quan tâm.
+
+Những người ngoại đạo thấy ngạc nhiên với hiện tượng này, nhưng bên trong cộng đồng toán học, chúng ta gạt bỏ nó bằng những cái nhún vai.
+
+Khó khăn lớn nhất nằm ở ngôn ngữ và văn hóa toán học, những thứ được chia thành các ngành hẹp.
+Những khái niệm cơ bản được sử dụng hàng ngày trong một ngành hẹp này có thể là ngoại ngữ với ngành
+hẹp khác. Các nhà toán học từ bỏ việc cố gắng hiểu những khái niệm căn bản thậm chí là của ngành hẹp
+lân cận, trừ phi họ phải hướng dẫn học viên sau đại học. 
+
+Ngược lại, sự trao đổi diễn ra rất tốt bên trong những ngành hẹp của toán học. Trong một ngành hẹp,
+người ta xây dựng một cây tri thức chung và những kỹ thuật đã biết. Bằng giao tiếp không hình thức,
+người ta học cách hiểu và sao chép những cách suy nghĩ của nhau, do vậy những ý tưởng có thể được giải
+thích một cách sáng sủa và dễ dàng.
+
+Tri thức toán học có thể được truyền giao nhanh một cách đáng ngạc nhiên bên trong một ngành hẹp.
+Khi một định lý đáng chú ý được chứng minh, thường (nhưng không phải luôn luôn) xảy ra chuyện lời
+giải có thể được trao đổi trong vài phút từ người này sang người khác trong cùng một ngành đó. Chứng
+minh tương tự có thể được trao đổi và hiểu một cách tổng quan sau bài giảng kéo dài khoảng một giờ
+cho những thành viên trong ngành. Nó có thể là chủ đề của một bài báo 15 đến 20 trang, mà có thể được
+đọc và hiểu chỉ sau vài giờ hay có thể là vài ngày đối với thành viên của ngành hẹp.
+
+Tại sao lại có một sự phát triển lớn từ những thảo luận không chính thức tới bài báo cáo rồi tới bài báo?
+Một cách trực tiếp, người ta sử dụng những kênh trao đổi rộng rãi, đi xa hơn ngôn ngữ toán học hình
+thức. Họ sử dụng cử chỉ, họ vẽ các hình vẽ và lược đồ, họ tạo ra hiệu ứng âm thanh và sử dụng ngôn ngữ
+cơ thể. Sự trao đổi có vẻ tựa như là theo hai hướng, do vậy người ta có thể tập trung vào những gì mà
+họ cần chú ý hơn. Với những kênh thông tin này, họ có được vị thế tốt hơn nhiều để tuyền tải những gì
+đang diễn ra, không chỉ bằng những công cụ lô-gic và ngôn ngữ của họ mà bằng cả những công cụ tinh
+thần nữa.
+
+Khi báo cáo, người ta bị hạn chế hơn và cũng hình thức hơn. Các thính giả toán học thường không giỏi
+đặt các câu hỏi hay xuất hiện trong tâm trí con người, còn người báo cáo lại thường có bản đề cương
+soạn sẵn không thực tế ngăn cản họ nghĩ về các câu hỏi hay thậm chí là khi họ bị hỏi.
+
+Trong bài báo, người ta còn hình thức hơn. Những người viết bài dịch các ý tưởng của họ thành ký hiệu
+và suy luận lô-gic, còn người đọc thì lại cố gắng dịch ngược lại.
+
+Tại sao lại có sự không nhất quán giữa trao đổi trong một ngành hẹp với những trao đổi bên ngoài những
+ngành hẹp đó, nếu không muốn nói đến trao đổi bên ngoài toán học ?
+
+Theo một nghĩa nào đó thì Toán học có một ngôn ngữ chung: Ngôn ngữ của các ký hiệu, những định lý,tính toán mang tính kỹ thuật, và lô-gic. Ngôn ngữ này truyền tải hiệu quả một số, nhưng không phải tất
+cả, các trạng thái tư duy toán học. Các nhà toán học học từ việc dịch gần như vô thức một số thứ nhất
+định từ một trạng thái tinh thần này tới trạng thái khác, do vậy các mệnh đề nhanh chóng trở nên rõ
+ràng. Những nhà toán học khác nhau nghiên cứu các bài báo theo những cách khác nhau, nhưng khi tôi
+đọc một bài báo trong một lĩnh vực mà tôi thành thạo, thì tôi tập trung vào những suy nghĩ giữa các
+dòng kiến thức. Tôi có thể nhìn vào một vài đoạn hay chuỗi các phương trình và tự nhủ rằng _“À phải rồi, họ đã đưa vào đủ những lời dẫn phức tạp để bước theo những ý tưởng như thế này”_. Khi ý tưởng là
+rõ ràng, cách thiết lập hình thức lại thường là không cần thiết và rườm rà – tôi thường cảm thấy rằng
+tôi có thể tự viết nó ra một cách dễ dàng hơn so với việc khám phá xem các tác giả thực sự viết gì. Nó
+cũng giống như một thợ làm bánh tập sự thử với một tờ hướng dẫn dài 16 trang vậy. Nếu bạn hiểu các
+người thợ làm bánh và bạn gặp một người thợ làm bánh tập sự, bạn sẽ thấy anh ta đưa nguyên liệu vào
+và xem nó có phù hợp hay không thay vì trước tiên phải đọc tất cả những chi tiết trong sách hướng dẫn 
+
+Những người quen với các phương thức làm việc khác nhau trong một ngành hẹp nhận biết những quy
+luật đa dạng của các mệnh đề hay công thức như là thành ngữ hay lối diễn đạt cho một số khái niệm hay
+hình ảnh trí tuệ nào đó. Nhưng với nhiều người không quen với những gì đang diễn ra, cùng những quy
+luật như thế lại không mấy sáng tỏ; thậm chí chúng còn thường gây nhầm lẫn. Ngôn ngữ không còn tồn
+tại ngoại trừ với người đang sử dụng nó.
+
+Ở đây, tôi muốn nhắc đến một chú ý quan trọng: Có một số nhà toán học, những người quen thuộc với
+những cách tư duy trong nhiều hơn một ngành hẹp, đôi khi là nhiều ngành như thế. Một số nhà toán học
+học được biệt ngữ của vài ngành hẹp khi là học viên cao học, một số lại nhạy bén với việc thu nạp những
+ngôn ngữ và văn hóa toán học của ngành khác còn một số khác thì lại ở các trung tâm của toán học nơi
+mà họ được tiếp xúc với rất nhiều ngành hẹp. Những người có thể làm việc thoải mái với nhiều hơn một
+ngành hẹp thường có một ảnh hưởng rất tích cực, họ bắc những cây cầu hay giúp đỡ những nhóm các
+nhà toán học học hỏi lẫn nhau. Nhưng khả năng hiểu biết của con người trong đa lĩnh vực có thể có ảnh
+hưởng tiêu cực, qua việc dọa dẫm người khác, hay giúp phê chuẩn và duy trì một hệ thống giao tiếp kém.
+Chẳng hạn, một hiệu ứng thường xuất hiện trong những buổi hội thảo chuyên đề, khi một hay hai người
+có hiểu biết rộng rãi ngồi ở hàng đầu có thể đóng vai trò như là người dẫn dắt tinh thần của báo cáo viên
+cho thính giả.
+
+Có một hiệu ứng khác, có nguồn gốc từ những khác biệt lớn giữa cách chúng ta nghĩ về toán học và cách
+chúng ta viết nó. Một nhóm các nhà toán học tương tác với nhau có thể giữ một tập hợp các ý tưởng
+toán học tồn tại trong một quãng thời gian vài năm, mặc dù những phiên bản ghi chép về công trình
+toán học của họ khác với những gì họ thực sự nghĩ, lại nhấn mạnh nhiều hơn rất nhiều vào ngôn ngữ,
+ký hiệu, lô-gic và tính hình thức. Nhưng khi những nhóm các nhà toán học mới học về chủ đề này, họ có
+khuynh hướng mô tả những gì họ đọc và nghe bằng lời, do vậy những hình thức và cơ cấu có thể dễ dàng
+ghi lại hay trao đổi sẽ có khuynh hướng lấn át các hình thức tư duy khác. Có hai thước đo cho khuynh
+hướng này, do vậy toán học không hoàn bị đẩy vào tình thế khó khăn trong vấn đề hình thức. Thứ nhất,
+các thế hệ nhà toán học trẻ hơn đang tiếp tục tự khám phá và tái khám phá những cách nhận thức, do
+vậy đan cài lại những trạng thái tư duy đa dạng của con người vào toán học. Thứ hai, đôi khi các nhà
+toán học sáng tạo ra những cái tên và tình cờ thống nhất những định nghĩa mà thay thế các diễn đạt
+luẩn quẩn mang tính kỹ thuật và đưa ra những cách luận giải tốt cho các cách nhận thức. Những cái tên
+như _“nhóm”_ để thay thế cho _“một hệ các phép thế thỏa mãn ...”_, và _“đa tạp”_ để thay thế cho . . . (dịch bị sót) 
+
+_Chúng ta không thể đưa ra các tọa độ để tham số hóa một cách đồng thời tất cả các nghiệm của những phương trình của mình, nhưng trong lân cận của bất kỳ một nghiệm cụ thể nào ta có thể đưa ra các tọa độ_
+
+[latexmath]
+++++
+f_1(u_1, u_2, u_3), f_2 (u_1, u_2, u_3), f_3 (u_1, u_2, u_3), f_4 (u_1, u_2, u_3), f_5 (u_1, u_2, u_3)
+++++
+
+_trong đó có ít nhất một trong mười định thức ... [10 định thức 3 × 3] cho các ma trận của những đạo hàm riêng la khác không._
+
+có thể hoặc không thể diễn đạt được những đột phá trong nhận thức của các chuyên gia, nhưng chúng làm giảm rất nhiều những khó khăn trong việc trao đổi nhận thức.
+
+Các nhà toán học cần phải dồn thêm nhiều tâm sức hơn nữa vào việc trao đổi các ý tưởng. Để hoàn thành việc này, chúng ta cần phải chú ý nhiều hơn tới việc trao đổi không chỉ những định nghĩa, định lý, và chứng minh, mà còn cả cách tư duy của mình nữa. Ta cần phải đánh giá đúng giá trị của những cách
+tư duy khác nhau về cùng một cấu trúc toán học.
+
+Chúng ta cần phải tập trung thật nhiều năng lượng hơn nữa cho việc hiểu và giải thích các cơ sở tinh thần căn bản của toán học – và hệ quả là dành ít hơn năng lượng cho các kết quả mới. Điều này dẫn đến sự phát triển ngôn ngữ toán học mà có hiệu quả cho mục đích nguyên sơ của việc truyền giao ý tưởng
+cho những người chưa biết.
+
+Một phần trong việc trao đổi này là qua các chứng minh.
+
+## Thế nào là một phép chứng minh 
+
+Khi tôi mới bắt đầu vào học sau đại học ở Berkeley, tôi có vấn đề với việc tưởng tượng làm thế
+nào mình có thể _“chứng minh”_ một định lý toán học mới và thú vị. Tôi không thực sự hiểu thế nào là một “phép chứng minh”. 
+
+Qua việc đi seminar, đọc các bài báo, và trò chuyện với các học viên sau đại học khác, tôi dần
+dần nắm được vấn đề. Trong bất kỳ ngành nào, có một số định lý và kỹ thuật nhất định được
+biết đến và chấp nhận rộng rãi. Khi bạn viết một bài báo, bạn nhắc đến chúng mà không cần
+dẫn chứng minh. Bạn nhìn vào những bài báo khác trong ngành, bạn thấy những cơ sở lập luận
+mà họ trích lại không kèm chứng minh, và những gì họ trích dẫn trong phần tài liệu tham khảo.
+Bạn học vài ý tưởng về các phép chứng minh từ những người khác. Và rồi bạn có thể tự do trích
+lại cùng định lý đó và cùng những trích dẫn kia. Bạn không cần phải đọc toàn bộ những bài báo
+hay các cuốn sách trong phần tài liệu tham khảo của bạn. Có rất nhiều thứ được biết đến rộng rãi là những thứ mà không còn văn bản nguồn được biết đến nữa. Chừng nào mà những người
+làm việc trong ngành đó còn thấy thoải mái vì những ý tưởng đó thực sự có tác dụng, nó không
+cần phải có một văn bản nguồn chính thức.
+
+Đầu tiên, tôi đã thực sự rất nghi ngờ quá trình này. Tôi đã ngờ rằng liệu có một ý tưởng nào thực
+sự được công bố hay chưa. Nhưng tôi thấy rằng tôi có thể hỏi mọi người và họ có thể đưa ra
+những giải đáp và chứng minh, hoặc có thể giới thiệu tôi tới ai đó khác hay tới những văn bản
+nguồn mà có cung cấp những lời giải thích hay các chứng minh. Có những định lý đã được công
+bố mà cũng được biết đến rộng rãi là không chính xác hay những chứng minh là không hoàn
+thiện. Tri thức và hiểu biết toán học được ẩn trong tâm trí và trong kết cấu xã hội của cộng đồng
+những người nghiên cứu một chủ đề nhất định. Tri thức toán học này được hỗ trợ bởi những văn
+bản lưu trữ, nhưng những tài liệu ấy cũng không thực sự chính yếu. 
+
+Tôi nghĩ mẫu hình này thay đổi chút ít qua từng ngành. Tôi đã quan tâm đến lĩnh vực hình học
+của toán học, nơi bây giờ rất hiếm tìm được một tài liệu phản ánh tốt cách thức mà người ta thực
+sự tư duy. Trong những lĩnh vực đại số hơn hay mang tính ký hiệu nhiều hơn, thì không nhất
+thiết phải như thế, và tôi có ấn tượng rằng trong nhiều lĩnh vực, các tài liệu thực sự gần như là
+xương sống của ngành. Nhưng trong lĩnh vực nào cũng có một tiêu chuẩn xã hội mạnh cho tính
+hợp lệ và sự đúng đắn. Chứng minh của Andrew Wiles cho Định lý cuối cùng của Fermat là
+một ví dụ minh họa tốt cho điều này, trong một lĩnh vực mang nhiều tính đại số. Các chuyên gia
+nhanh chóng tin rằng chứng minh của ông căn bản là đúng trên nền tảng của những ý tưởng cao
+cấp, từ rất lâu trước khi những chi tiết trong chứng minh có thể được kiểm chứng. Chứng minh
+này sẽ nhận được rất nhiều sự xem xét và kiểm tra kỹ lưỡng so với hầu hết các phép chứng minh
+toán học khác, nhưng bất kể quá trình kiểm tra hé lộ điều gì, nó cũng giúp minh họa xem toán
+học tiến triển thế nào qua những hệ thống tâm lý học và quá trình xã hội học.
+
+Khi mọi người làm toán, dòng các ý tưởng và tiêu chí xã hội cho giá trị và sự chính xác là đáng
+tin cậy hơn nhiều so với những tài liệu hình thức. Người ta thường không giỏi lắm trong việc
+kiểm tra _tính đúng đắn hình thức_ của các phép chứng minh, nhưng họ lại khá chính xác trong
+việc phát hiện những điểm yếu tiềm tàng hay những lỗi sai trong các phép chứng minh ấy
+
+Để tránh giải thích sai, tôi muốn nhấn mạnh vào hai thứ mà tôi _không_ đang nói đến. Trước tiên,
+tôi _không_ bào chữa cho bất kỳ yếu kém nào của tiêu chí chuẩn về phép chứng minh của cộng
+đồng chúng ta, mà tôi đang cố gắng diễn tả quá trình chứng minh ấy thực sự vận hành như thế
+nào. Các phép chứng minh cẩn thận mà sẽ chống lại sự soi xét là rất quan trọng. Tôi nghĩ rằng,
+nếu xét toàn thể, quá trình của các phép chứng minh vận hành khá tốt trong cộng đồng toán học.
+Kiểu thay đổi mà tôi muốn bào chữa là các nhà toán học cẩn thận hơn với các phép chứng minh
+của họ, làm cho chúng rõ ràng và đơn giản nhất có thể và nhờ đó nếu bất kỳ điểm yếu nào xuất
+hiện, thì cũng dễ dàng được phát hiện.
+
+Thứ hai, tôi _không_ phê bình nghiên cứu toán học của các chứng minh hình thức, tôi cũng không
+phê bình những người dành năng lượng vào việc tạo ra những luận điểm toán học ngày một cụ
+thể và hình thức hơn. Chúng đều là những hoạt động có ích mà soi rọi những nhận thức mới về
+toán học. 
+
+Tôi đã khá nỗ lực trong nhiều quá trình của sự nghiệp của mình để khám phá những câu hỏi
+toán học bằng máy tính. Theo quan điểm của kinh nghiệm này, tôi đã ngạc nhiên khi thấy mệnh
+đề của Jaffe và Quinn rằng toán học là vô cùng chậm chạp và khó khăn, và rằng có thể xác minh
+được rằng nó là hoạt động mang tính chặt chẽ nhất trong tất cả các hoạt động của con người.
+Tiêu chuẩn cho sự chính xác và hoàn thiện để có được một chương trình máy tính vận hành được
+ở mức cao hơn hai lần so với tiêu chuẩn của cộng đồng toán học cho các phép chứng minh đúng đắn. Tuy nhiên, những chương trình máy tính lớn, thậm chí khi chúng đã được viết và kiểm tra
+một cách rất cẩn thận, thì lại luôn có vẻ như có lỗi.
+
+Tôi nghĩ rằng toán học là một trong những phần thưởng trí tuệ lớn nhất trong các hoạt động của
+con người. Bởi vì chúng ta có một tiêu chuẩn cao cho sự rõ ràng và thuyết phục của tư duy và
+do chúng ta đặt một tiêu chuẩn cao trong việc lắng nghe và cố gắng tiếp thu lẫn nhau, chúng ta
+không tham gia vào những luận điểm dài dòng hay làm đi làm lại những vấn đề toán học của
+mình. Chúng ta được chuẩn bị để được thuyết phục bởi những người khác. Nói một cách trí tuệ,
+toán học chuyển động rất nhanh. Toàn bộ cảnh quan toán học thay đổi liên tục theo những cách
+đáng ngạc nhiên trong suốt một sự nghiệp đơn lẻ. Khi ta biết là viết một chương trình máy tính
+tiếp cận mục tiêu trí thức của một bài báo toán học tốt khó đến thế nào, và sẽ phải tốn nhiều nỗ
+lực và thời gian để biến nó thành “gần như” đúng một cách hình thức, thật phi lý khi khẳng định
+rằng toán học mà chúng ta đang thực hành lại không ở đâu gần đúng một cách hình thức. 
+
+Toán học mà chúng ta thực hành, một cách hình thức là hoàn thiện hơn rất nhiều và chính xác
+hơn nhiều ngành khoa học khác, nhưng nó thiếu hoàn thiện và chính xác một cách hình thức
+so với các phần mềm máy tính. Sự khác biệt không chỉ liên quan tới mức độ nỗ lực: kiểu nỗ
+lực khác biệt về lượng. Trong những phần mềm máy tính đồ sộ, một lượng nỗ lực khủng khiếp
+phải được sử dụng cho vô số vấn đề về tính tương thích: đảm bảo rằng tất cả các định nghĩa
+là nhất quán, phát triển những cấu trúc dữ liệu “tốt” mà hữu ích nhưng phần đông không làm
+vướng víu, quyết định trên sự tổng quát “phù hợp” cho các hàm số, etc. Tỉ lệ năng lượng sử
+dụng trên phần hoạt động của một phần mềm đồ sộ, để phân biệt với phần tính toán, là nhỏ đáng
+ngạc nhiên. Bởi vì những vấn đề tương thích mà hầu như chắc chắn vượt quá tầm kiểm soát do
+những định nghĩa "chuẩn" thay đổi khi nguyên tắc chung và phạm vi vận hành được thêm vào,
+các phần mềm máy tính hay cần phải được viết lại thường xuyên, thường là từ những hỗn độn.
+
+Một kiểu nỗ lực tương tự có lẽ đã đi vào toán học để giúp toán học đúng đắn, hoàn thiện một
+cách hình thức. Không phải sự chính xác về mặt hình thức là khó đến không vượt qua được dưới
+thang kích thước nhỏ - mà là có rất nhiều sự lựa chọn khả dĩ cho sự hình thức hóa trên những
+thang kích thước nhỏ mà có thể dịch sang số lượng khổng lồ của lựa chọn độc lập trong thang
+kích thước lớn. Việc làm cho những lựa chọn này tương thích với nhau là rất khó, làm như thế
+sẽ chắc chắn dẫn đến việc quay ngược lại và viết lại từ hỗn độn tất cả những bài báo toán học
+cũ có những kết quả chúng ta phải phụ thuộc vào. Cũng khá khó khăn để đưa ra những lựa chọn
+kỹ thuật cho các định nghĩa mang tính hình thức thích hợp với những cách thức đa dạng mà các
+nhà toán học muốn sử dụng chúng và điều này sẽ thúc đẩy sự mở rộng trong tương lai của toán
+học. Nếu chúng ta tiếp tục cộng tác, hầu hết thời gian của chúng ta sẽ được dành cho những hội
+đồng tiêu chuẩn quốc tế để thiết lập những định nghĩa thống nhất và giải quyết những vấn đề
+gây tranh cãi khổng lồ.
+
+Các nhà toán học có thể và thực sự khỏa lấp được những cách biệt, sửa chữa các lỗi, cung cấp
+thêm những chi tiết, phương pháp khoa học cẩn thận hơn khi họ được chọn hay thúc đẩy để làm
+như thế. Hệ thống của chúng ta làm khá tốt việc đưa ra những định lý tin cậy được mà có thể
+được lưu trữ một cách chắc chắn. Chỉ là tính tin cậy được không hoàn toàn đến từ chuyện các
+nhà toán học kiểm tra một cách hình thức các luận điểm hình thức, nó đến từ những nhà toán
+học suy nghĩ cẩn trọng, có phản biện về các ý tưởng toán học.
+
+Ở một mức độ nền tảng, những cơ sở của toán học là rất thiếu vững chãi so với thứ toán học mà
+chúng ta nghiên cứu. Hầu hết các nhà toán học bám lấy những nguyên lý mà được biết đến như
+là những hư cấu tao nhã. Chẳng hạn, có một định lý nói rằng không tồn tại cách nào để thực sự
+xây dựng hay thậm chí là định nghĩa một thứ tự tốt trên tập hợp số thực. Có một nguyên nhân đáng kể (nhưng không có chứng minh) rằng chúng ta có thể bỏ những hư cấu này đi mà cũng
+không sao cả, nhưng điều này cũng không giúp chúng trở nên chính xác được. Các nhà tập hợp
+xây dựng nhiều những "hoàn vũ toán học" mâu thuẫn xen kẽ và đan cài lẫn nhau sao cho nếu
+một trong số đó mà nhất quán thì những cái còn lại cũng thế. Việc này để lại rất ít độ tin cậy
+rằng hoàn vũ này hay hoàn vũ khác là lựa chọn đúng đắn hay lựa chọn tự nhiên. Định lý bất
+toàn của Kurt Godel hàm ý rằng không thể có hệ hình thức nào lại nhất quán được, nhưng lại đủ
+mạnh để có thể phục vụ như một cơ sở cho tất cả toán học mà chúng ta nghiên cứu.
+
+
+Đối nghịch với con người, máy tính lại giỏi thực hiện những quá trình hình thức. Một số người
+đang tích cực làm việc trong dự án hình thức hóa một cách thực sự các phần của toán học bằng
+máy tính, với những suy diễn hình thức chính xác. Tôi nghĩ rằng đây là một dự án lớn, rất đáng
+giá và tôi tự tin rằng chúng ta sẽ học được rất nhiều từ đó. Quá trình này sẽ giúp đơn giản hóa
+và làm toán học sáng sủa hơn. Không lâu nữa, tôi kỳ vọng chúng ta sẽ có những phần mềm máy
+tính mang tính tương tác mà có thể giúp con người dịch mã những khó khăn của toán học chính
+xác và hoàn thiện một cách hình thức (dựa trên một ít những giả định có lẽ vẫn yếu nhưng chí
+ít là cụ thể), và rằng chúng sẽ trở thành một phần của môi trường làm việc chuẩn của nhà toán
+học.
+
+Tuy nhiên, chúng ta nên nhận thấy rằng những chứng minh có thể hiểu được và có thể kiểm
+chứng được dưới góc độ của con người mà chúng ta thực sự làm được là những thứ quan trọng
+nhất với chúng ta và chúng khá khác biệt với những chứng minh hình thức. Hiện tại, những
+chứng minh hình thức vẫn nằm ngoài tầm với và hầu như không thích hợp: chúng ta có những
+quá trình đủ tốt của con người để kiểm chứng tính chính xác toán học.
+
+##  Điều gì khích lệ con người nghiên cứu toán học ? 
+
+Có một niềm vui thực sự khi làm toán, trong việc học những cách tư duy diễn giải, tổ chức và
+đơn giản hóa. Bạn có thể cảm thấy niềm vui khám phá toán học mới, tái khám phá toán học cổ
+xưa, học một cách tư duy từ ai đó hay từ tài liệu, tìm ra một cách giải thích mới, thú vị để nhìn
+nhận một cấu trúc toán học cũ.
+
+Động lực nội tại có thể hướng chúng ta nghĩ rằng chúng ta làm toán hoàn toàn vì lợi ích của
+chính nó. Điều này không chính xác: môi trường xã hội là cực kỳ quan trọng. Chúng ta được
+truyền cảm hứng bởi những người khác, được đánh giá cao bởi những người khác và chúng ta
+thích giúp đỡ những người khác giải quyết các vấn đề toán học của họ. Những điều chúng ta ưa
+thích thay đổi tương ứng với những người khác. Tương tác xã hội xảy ra qua những buổi gặp mặt
+trực tiếp. Nó cũng xảy ra qua những thư và thư điện tử điện tử, các tiền ấn phẩm và các bài báo
+trên các tạp chí. Một hiệu ứng của hệ thống toán học mang tính xã hội cao này là khuynh hướng
+các nhà toán học đi theo những vấn đề hợp mốt. Vì mục đích tạo ra các định lý toán học mới có
+lẽ là không mấy hiệu quả: sẽ tốt hợn nếu chúng ta có những nhà toán học phủ các lĩnh vực tri
+thức đồng đều hơn. Nhưng hầu hết các nhà toán học không thích đơn độc, và họ gặp vấn đề với
+việc mãi phấn khích với một chủ đề, ngay cả khi họ đã đạt được những tiến triển cá nhân, trừ phi
+họ có những đồng nghiệp để chia sẻ sự phấn khích của họ.
+
+Ngoài động lực nội tại và động lực mang tính xã hội không chính thức cho việc làm toán, chúng
+ta cũng được dẫn dắt bởi những lý do kinh tế và địa vị. Các nhà toán học, cũng giống như nhiều
+nhà khoa học khác, thực hiện rất nhiều đánh giá và bị đánh giá rất nhiều. Bắt đầu với những mức
+điểm, và tiếp tục qua những thư tiến cử, quyết định tuyển, quyết định đề bạt, báo cáo thẩm định,
+lời mời báo cáo, giải thưởng, ... chúng ta tham gia vào rất nhiều đánh giá, trong một hệ thống
+cạnh tranh khốc liệt.
+
+Jaffe và Quinn phân tích động lực để làm toán qua một hệ thống tiền tệ chung mà rất nhiều nhà
+toán học tin tưởng: sự trả công cho các định lý.
+
+Tôi nghĩ rằng sự nhấn mạnh chung của chúng ta vào sự trả công cho các định lý có một ảnh
+hưởng xấu lên tiến bộ của toán học. Nếu điều chúng ta đang thực hiện đẩy mạnh hiểu biết của
+con người về toán học, thì chúng ta sẽ được nhận biết và được đánh giá tốt hơn trong một hoạt
+động có phạm vi rộng hơn rất nhiều. Những người nhìn thấy cách chứng minh các định lý đang
+thực hiện nó trong phạm vi một cộng đồng toán học; họ không tự làm nó. Họ phụ thuộc vào hiểu
+biết toán học mà họ thu lượm được từ những nhà toán học khác. Một khi một định lý được chứng
+minh, cộng đồng toán học phụ thuộc vào mạng lưới xã hội để phân phối những ý tưởng tới những
+người mà có thể sử dụng chúng nhiều hơn – phương tiện in ấn là quá mờ mịt và cồng kềnh. 
+
+Thậm chí nếu ai đó có một quan điểm hẹp hòi rằng cái mà chúng ta đang tạo ra là các định lý, thì
+tập thể vẫn là quan trọng. Bóng đá có thể coi là một ẩn dụ. Có thể có một hoặc hai bàn thắng thôi
+trong suốt cả trận đấu, được ghi bởi một hoặc hai cầu thủ. Nhưng điều đó không có nghĩa rằng
+những nỗ lực của tất cả các thủ khác là vô giá trị. Chúng ta không đánh giá các cầu thủ trong một
+đội bóng chỉ bởi việc họ có tự ghi bàn hay không; chúng ta đánh giá một đội bóng qua cách nó
+vận hành như một đội bóng.
+
+Trong toán học, thường xảy ra chuyện rằng một nhóm các nhà toán học đạt được sự tiến bộ với
+một tập hợp các ý tưởng nhất định. Có những định lý trên đường tiến bộ đó mà hầu như chắc
+chắn được chứng minh bởi một người này, hay người khác. Đôi khi nhóm các nhà toán học thậm
+chí có thể tiên đoán rằng những định lý này tựa như thế nào. Việc này khó hơn rất nhiều so với
+việc dự đoán xem ai sẽ thực sự chứng minh được định lý, mặc dù thường có một số ít "người nổi
+bật" mà có khả năng cao sẽ ghi điểm. Tuy nhiên, họ đang ở một vị trí mà có thể chứng minh
+những định lý kia nhờ tập hợp những nỗ lực của toàn đội. Toàn đội có một chức năng nữa, trong
+việc tiếp thu và sử dụng các định lý một khi chúng được chứng minh. Thậm chí nếu một người
+nào đó có thể chứng minh tất cả các định lý trên đường đi mà không cần trợ giúp, thì chúng sẽ bị
+bỏ phí nếu không còn ai khác học chúng.
+
+Có một hiện tượng thú vị liên quan tới những người "nổi bật". Thường xảy ra rằng ai đó ở mức
+trung bình chứng minh một định lý mà được chấp nhận rộng rãi như một kết quả giá trị. Vị thế
+của họ trong cộng đồng - thứ bậc của họ - ngay lập tức tăng đột ngột. Khi điều này xảy ra, họ
+nhanh chóng đạt hiệu suất cao hơn rất nhiều như một trung tâm của các ý tưởng và một nguồn
+cho các định lý. Tại sao? Trước tiên, có một sự tăng tiến lớn trong niềm tự tôn của bản thân, và sự
+tăng tiến hệ quả trong hiệu suất công việc. Thứ hai, khi vị thế của họ lớn mạnh hơn, mọi người
+đang ở gần trung tâm mạng lưới các ý tưởng-những người khác sẽ nhìn nhận họ nghiêm túc hơn.
+Điểm cuối cùng và có lẽ là quan trọng nhất, một đột phá toán học thường thể hiện một cách tư
+duy mới, và những phương cách hiệu quả của tư duy thường có thể áp dụng vào nhiều hơn một
+tình huống.
+
+Hiện tượng này thuyết phục tôi rằng cả cộng đồng toán học sẽ trở nên dần đạt hiệu suất cao hơn
+rất nhiều nếu chúng ta mở rộng tâm hồn vào những giá trị thực của công việc mà chúng ta đang
+thực hiện. Jaffe và Quinn đề xuất một hệ thống nhận biết các vai trò chia nhỏ thành "ức đoán" và
+"chứng minh". Một phép phân chia như vậy có thể duy trì niềm tin hoang đường rằng tiến bộ của
+chúng ta được đo bởi những đơn vị cho những định lý chuẩn được tìm ra. Nghe hơi có vẻ giống
+như sự ngụy biện của một người mà đã in ra một bảng 10000 số nguyên tố. Thứ mà chúng ta làm
+ra được là hiểu biết của con người. Chúng ta có rất nhiều cách khác nhau để hiểu và rất nhiều
+quá trình khác nhau mà góp phần xây dựng nên hiểu biết của chúng ta. Ta sẽ thỏa mãn hơn, có
+hiệu suất cao hơn, và hạnh phúc hơn nếu chúng ta ghi nhận và tập trung vào việc này. 
+
+## Một số kinh nghiệm cá nhân
+
+Bởi vì bài viết này nảy sinh từ sự phản chiếu giữa sự không tương thích trong kinh nghiệm của
+tôi với những mô tả của Jaffe và Quinn, tôi sẽ bàn về hai kinh nghiệm cá nhân, bao gồm cả kinh
+nghiệm mà họ đã ám chỉ tới.
+
+Tôi cảm thấy có gì đó ngu ngốc trong việc này, bởi vì tôi thực sự hối hận về những khía cạnh
+trong nghề nghiệp của mình: nếu tôi có thể làm mọi thứ một lần nữa với lợi ích từ những hiểu biết hiện tại về bản thân tôi và về tiến trình của toán học, thì có rất nhiều điều mà tôi hi vọng
+mình sẽ làm khác đi. Tôi hi vọng rằng qua việc kể về những kinh nghiệm này một cách thẳng
+thắn như tôi còn nhớ và hiểu về nó, tôi có thể giúp những người khác hiểu tốt hơn về tiến trình
+của toán học và học trước từ đó.
+
+Đầu tiên tôi sẽ bàn luận ngắn gọn về lý thuyết phân lá, chính là chủ đề đầu tiên mà tôi bắt đầu
+khi còn là học viên sau đại học (ở đây không quan trọng bạn có biết lý thuyết phân lá là gì hay
+không) Ở thời điểm đó, lý thuyết phân lá đã trở thành trung tâm của sự chú ý của các nhà tôpô
+hình học, những người nghiên cứu hệ động lực và các nhà hình học vi phân. Khá nhanh chóng,
+tôi đã chứng minh được một số định lý theo một cách rất ấn tượng. Tôi đã chứng minh một định
+lý phân loại cho sự phân lá, đưa ra điều kiện cần và đủ cho một đa tạp có một sự phân lá. Tôi đã
+chứng minh một số định lý đáng chú ý khác. Tôi viết một số bài báo đáng được kính nể và công
+bố những định lý quan trọng nhất. Thật khó để có đủ thời gian để viết để duy trì những gì tôi có
+thể chứng minh, và tôi đã xây dựng phần lưu trữ.
+
+Một hiện tượng thú vị đã xảy ra. Trong vòng vài năm một cuộc tháo lui đột ngột trong ngành đã
+bắt đầu diễn ra. Tôi đã nghe được từ khá nhiều các nhà toán học là họ đã đưa ra hay nhận được
+lời khuyên rằng đừng đi vào lý thuyết phân lá– họ đã nói rằng Thurston đã giải quyết sạch sẽ lý
+thuyết này rồi. Người ta nói với tôi rằng (không phải phàn nàn, mà là một lời khen) tôi đã giết
+chết lĩnh vực này. Những học viên sau đại học ngừng nghiên cứu lý thuyết phân lá, và khá nhanh
+chóng, tôi cũng hướng sự ưa thích của mình sang lĩnh vực khác.
+
+Tôi không tin rằng sự tháo lui xảy ra bởi vì lĩnh vực này đã cạn kiệt tiềm năng tri thức. Đã có (và
+vẫn còn) nhiều những câu hỏi thú vị và có lẽ là có thể tiếp cận được. Kể từ những năm tháng ấy,
+đã có những phát triển thú vị được một số ít các nhà toán học khác đưa ra, những người vẫn còn
+làm việc trong ngành hay mới tham gia, và vẫn có những tiến triển quan trọng trong những địa
+hạt lân cận mà tôi nghĩ rằng chúng sẽ tăng tốc cực nhanh nếu các nhà toán học vẫn tiếp tục theo
+đuổi lý thuyết phân lá một cách mạnh mẽ. Ngày nay, tôi nghĩ rằng có ít các nhà toán học, những
+người hiểu về bất kỳ thứ gì tiếp cận được trạng thái của nghệ thuật của sự phân lá như là nó đã
+tồn tại ở thời điểm đó, mặc dù có một vài phần trong lý thuyết phân lá, bao gồm cả những phát
+triển kể từ thời ấy, vẫn đang phát triển mạnh. 
+
+Tôi tin rằng hai hiệu ứng mang tính sinh thái học là quan trọng hơn rất nhiều trong việc làm ngã
+lòng mọi người trong chủ đề này so với việc cạn kiệt nguồn tri thức đã xảy ra. 
+
+Trước tiên, những kết quả mà tôi đã chứng minh (cũng như một số kết quả quan trọng của những
+người khác) đã được ghi lại theo một phong cách kinh khủng, thường thấy của các nhà toán học.
+Nó phụ thuộc nặng nề vào những người đọc mà chia sẻ được kiến thức căn bản và một số nhận
+thức nhất định. Lý thuyết phân lá còn non trẻ, là một ngành hẹp có nhiều cơ hội, và nền tảng của
+nó vẫn chưa được chuẩn hóa. Tôi không do dự trong việc vẽ ra bất kỳ thứ toán học nào mà tôi đã
+học được từ người khác. Những bài báo tôi viết đã không (và không thể) dành nhiều thời gian để
+giải thích nền tảng văn hóa. Chúng được ghi chép lại ở mức tư duy và kết luận đỉnh cao nhất mà
+tôi thường đạt được sau nhiều ngẫm nghĩ và nỗ lực. Tôi cũng bỏ đi những thông tin ngắn có giá
+trị hàm ẩn trong suy luận, chẳng hạn như “bất biến Godbillon-Vey đo mức nghiêng xoắn ốc của
+một sự phân lá”, mà vẫn còn bí ẩn với hầu hết những nhà toán học đã đọc nó. Việc này tạo ra
+một chướng ngại lớn: tôi nghĩ rằng hầu hết các học viên sau đại học và các nhà toán học đều bị
+nản lòng rằng quá khó để học và hiểu được các chứng minh của những định lý cốt yếu. 
+
+Thứ hai là vấn đề rằng có gì trong ngành dành cho những người khác. Khi tôi bắt đầu làm việc
+với lý thuyết phân lá, tôi đã nghĩ rằng điều mà họ theo đuổi là một tập hợp các định lý mạnh đã
+được chứng minh mà có thể áp dụng để trả lời những vấn đề toán học lớn hơn. Nhưng đó chỉ là
+một phần của câu chuyện mà thôi. Hơn cả tri thức, mọi người muốn có được sự thấu hiểu mang
+tính cá nhân. Và trong hệ đánh giá đã đưa ra của chúng ta, họ cũng muốn và cần sự ghi nhận qua
+các định lý.
+
+Tôi sẽ bỏ qua vài năm để đến với chủ đề mà Jaffe và Quinn đã ám chỉ tới, khi tôi bắt đầu nghiên
+cứu các đa tạp ba chiều và quan hệ của chúng với hình học hyperbolic. (Một lần nữa, không có
+vấn đề gì lắm nếu bạn không biết đây là gì.) Tôi dần dần xây dựng được trong vài năm một trực
+quan nhất định với 3-đa tạp hyperbolic, với một tập hợp những cách xây dựng, các ví dụ và phép
+chứng minh (quá trình này thực ra bắt đầu khi tôi còn là sinh viên, và đã được ủng hộ rất mạnh
+bởi các áp dụng vào lý thuyết phân lá). Sau một thời gian, tôi đã đặt giả thuyết hay ước đoán rằng
+tất cả các 3-đa tạp đều có một cấu trúc hình học nhất định, giả thuyết này cuối cùng được biết
+đến dưới tên gọi giả thuyết hình học hóa. Khoảng hai hay ba năm sau đó, tôi đã chứng minh giả
+thuyết hình học hóa cho các đa tạp Haken. Nó là một định lý khó, và tôi đã dành một nỗ lực
+khổng lồ để nghĩ về nó. Khi tôi hoàn thiện phép chứng minh, tôi cũng đã dành nhiều công sức
+hơn nữa để kiểm tra phép chứng minh, tìm kiếm những điểm khó khăn và kiểm chứng nó một
+lần nữa trước những thông tin độc lập.
+
+Tôi muốn viết chi tiết hơn nữa về ý tưởng của mình khi tôi nói tôi đã chứng minh định lý này. Nó
+có nghĩa rằng tôi đã có một dòng các ý tưởng sáng sủa và hoàn thiện, bao gồm cả các chi tiết mà
+đã đứng vững trước rất nhiều lần kiểm tra của cả tôi và những người khác. Các nhà toán học có
+những phong cách tư duy khác nhau. Phong cách của tôi không phải là đưa ra các tổng quát hóa
+rộng nhưng bất cẩn mang tính định hướng và tạo cảm hứng: tôi thiết lập những mô hình tư duy
+cụ thể, và tôi tư duy về mọi điều qua đó. Vì thế chứng minh của tôi là khá đáng tin cậy. Tôi chưa
+gặp vấn đề với việc sao lưu lại những mệnh đề hay đưa ra những chi tiết về những thứ mà tôi đã
+chứng minh. Tôi làm khá tốt việc phát hiện lỗi sai trong suy luận của chính mình cũng như của
+những người khác.
+
+Tuy nhiên, đôi khi cũng có một yếu tố bị phát triển quá mạnh qua việc phiên dịch từ những mã
+hóa trong tư duy của riêng tôi tới những gì mà có thể truyền tải sang ai đó khác. Nền tảng giáo
+dục toán học của tôi là hơi độc lập và theo phong cách riêng, mà trong nhiều năm ròng tôi đã
+tự học rất nhiều thứ, tự phát triển các hình mẫu tư duyriêng cho việc nên nghĩ về toán học như
+thế nào. Việc này thường là một lợi thế rất lớn cho tôi trong việc tư duy về toán học, bởi vì sau
+này sẽ dễ dàng tiếp nhận những hình mẫu tư duy chuẩn được chia sẻ bởi những nhóm các nhà
+toán học khác. Điều này có nghĩa rằng một số khái niệm mà tôi sử dụng một cách tự do và tự
+nhiên trong tư duy của tôi lại là xa lạ với hầu hết các nhà toán học khác mà tôi nói chuyện cùng.
+Những hình mẫu và cấu trúc tư duycủa cá nhân tôi là tương tự về mặt đặc tính với những kiểu
+mẫu hình mà các nhóm các nhà toán học khác chia sẻ - nhưng chúng thường là những hình mẫu
+khác nhau. Ở thời điểm mà tôi hệ thống hóa giả thuyết hình học hóa, hiểu biết của tôi về hình
+học hyperbolic là một ví dụ tốt. Một ví dụ ngẫu nhiên tiếp theo là hiểu biết về các không gian tô
+pô hữu hạn, một chủ đề kỳ quặc mà có thể cho mượn ý tưởng tốt vào một mớ các câu hỏi nhưng
+nó không hoàn toàn đáng để phát triển trong bất kỳ trường hợp nào bởi vì có những lối diễn đạt
+loanh quanh luẩn quẩn ngăn trở nó.
+
+Không phải giả thuyết hình học hóa và cũng không phải chứng minh của nó cho các đa tạp Haken
+nằm trên đường đi của bất kỳ nhóm các nhà toán học nào vào thời điểm đó – nó đi ngược lại với các xu hướng trong tôpô 30 năm trước đó, và nó đã làm mọi người ngạc nhiên. Với hầu hết các
+nhà tôpô vào thời điểm đó, hình học hyperbolic là một ngành cần phải biết của toán học, mặc dù
+có những nhóm các nhà toán học khác như các nhà hình học vi phân, họ không hề hiểu nó dưới
+một số góc độ nhất định. Các nhà tôpô cần tốn một chút thời gian để hiểu giả thuyết hình học
+hóa là gì, nó có gì tốt, và tại sao nó lại xác đáng.
+
+Cùng thời điểm đó, tôi bắt đầu viết những ghi chép về hình học và tôpô của 3-đa tạp, cũng dùng
+cho khóa học sau đại học mà tôi đang dạy. Tôi phát nó cho một số ít người, rất lâu trước khi
+những người khác trên thế giới bắt đầu chép lại những bản sao. Danh sách thư điện tử lớn lên tới
+khoảng 1200 người, những người mà tôi đã gửi các ghi chép vài tháng một lần. Tôi cố gắng trao
+đổi các ý tưởng thực sự của tôi trong những ghi chép ấy. Mọi người thực hiện nhiều seminar dựa
+trên các ghi chép của tôi và tôi nhận được rất nhiều phản hồi. Tràn ngập trong các phản hồi là
+những câu đại loại như “Những ghi chép của ông thật đầy cảm hứng và đẹp đẽ, nhưng tôi phải
+nói với ông rằng chúng tôi đã phải dành tới ba tuần trong seminar của mình để hiểu những chi
+tiết trong \S n.n. Chắc chắn là cần thêm những giải thích.”
+
+Tôi cũng dành nhiều lời giới thiệu tới những nhóm các nhà toán học về ý tưởng nghiên cứu các
+3-đa tạp từ quan điểm hình học và về chứng minh của giả thuyết hình học hóa cho các đa tạp
+Haken. Ban đầu, chủ đề này là xa lạ với hầu hết mọi người. Thật khó để trao đổi những cơ sở
+nằm trong đầu tôi, không phải trong cộng đồng toán học. Có một vài lý thuyết toán học mà có
+ảnh hưởng lên đám những ý tưởng này: tôpô ba-đa tạp, những nhóm Klein, các hệ động lực, tôpô
+hình học, các nhóm con rời rạc của những nhóm Lie rời rạc, lý thuyết phân lá, các không gian
+Teichmuller, đồng phôi giả Anosov, lý thuyết nhóm hình học, cũng như là hình học hyperbolic.
+
+Chúng tôi tổ chức một workshop của Hiệp hội Toán học Mỹ ở Bowdoin vào năm 1980, nơi nhiều
+nhà toán học trong những ngành hẹp như tôpô số chiều thấp, hệ động lực và nhóm Klein tham
+dự.
+
+Đó là một kinh nghiệm thú vị trong việc trao đổi văn hóa. Câu chuyện đột ngột trở nên rõ ràng
+rằng các phép chứng minh phụ thuộc thế nào vào các thính giả. Chúng ta chứng minh vài thứ gì
+đó trong một bối cảnh xã hội và nhắm tới một số thính giả nhất định. Một vài phần của phép
+chứng minh này tôi có thể trao đổi trong vòng hai phút với các nhà tôpô nhưng các nhà giải tích
+sẽ cần tới một bài giảng dài một giờ để họ có thể bắt đầu hiểu được. Tương tự như vậy, cũng có
+một vài thứ mà có thể nói trong vòng hai phút cho các nhà giải tích mà sẽ tốn mất một giờ trước
+khi các nhà tôpô bắt đầu nhận thức được. Và cũng có rất nhiều phần khác trong phép chứng minh
+cần hai phút để diễn đạt trong phần tóm tắt, nhưng không ai trong số các thính giả ở thời điểm đó
+có đủ cơ sở trí tuệ để có thể hiểu trong ít hơn một giờ.
+
+Ở thời điểm đó, thực tế không hề có cơ sở và ngữ cảnh nào cho định lý này, do vậy sự phát triển
+từ việc làm thế nào mà một ý tưởng khởi nguồn từ tâm trí của tôi tới những gì tôi phải nói để
+khiến nó trở nên có thể hiểu được, không đề cập tới chuyện thính giả phải hi sinh để hiểu nó, là
+rất ấn tượng.
+
+Dựa trên kinh nghiệm của tôi về lý thuyết phân lá và để đáp trả những áp lực xã hội, tôi tập trung
+hầu hết sự chú ý của mình vào việc phát triển và giới thiệu cơ sở của những gì tôi viết và những
+gì tôi nói với mọi người. Tôi đã giải thích chi tiết cho vài người đã “sẵn sàng” với nó. Tôi viết
+một số bài báo, đưa ra những phần tồn tại độc lập trong chứng minh của giả thuyết hình học hóa
+cho các đa tạp Haken – với những bài báo này, tôi gần như không nhận được phản hồi nào cả.
+
+Tương tự như vậy, mãi tới sau này, một vài người mới thực sự vượt qua những phần khó nhất và
+sâu sắc nhất trong những ghi chép của tôi.
+
+Kết quả là bây giờ khá nhiều các nhà toán học đã có những hiểu biết mà họ đã rất thiếu khi mới
+bắt đầu: một hiểu biết có hiệu lực về những khái niệm và cơ sở mà là tự nhiên với ngành này. Đã
+từng có và sẽ còn tiếp tục có nhiều hoạt động toán học lớn mạnh. Bằng cách tập trung vào xây
+dựng cơ sở, giải thích và công bố các định nghĩa và cách thức tư duy nhưng chậm rãi trong việc
+phát biểu và công bố các phép chứng minh của tất cả các “định lý” mà tôi đã biết làm thế nào để
+chứng minh, tôi dành cơ hội cho mọi người để nhận lấy danh tiếng. Vẫn còn cơ hội cho mọi người
+để khám phá và công bố các chứng minh khác của định lý hình học hóa. Những chứng minh này
+giúp phát triển các khái niệm toán học mà tự thân là khá thú vị và thúc đẩy toán học đi xa hơn.
+
+Điều mà các nhà toán học muốn và cần nhất từ tôi đó là học cách tư duy chứ thực tế không phải
+là học cách chứng minh giả thuyết hình học hóa cho các đa tạp Haken. Không mấy chắc chắn
+rằng chứng minh của giả thuyết hình học hóa tổng quát sẽ bao hàm cả việc đẩy chính nó đi xa
+hơn. Một vấn đề nữa là đôi khi người ta cần hay muốn một kết quả được chấp nhận và chính xác
+không chỉ bởi vì để học nó, mà còn là từ đó họ có thể trích dẫn lại nó hay dựa trên nó.
+
+Các nhà toán học thực ra đã rất nhanh chóng chấp nhận phép chứng minh của tôi, và để bắt đầu
+trích dẫn hay sử dụng nó dựa trên bất cứ tài liệu nào sẵn có, trên kinh nghiệm của họ cùng niềm
+tin ở tôi và trên sự chấp thuận và ý kiến riêng của các chuyên gia, những người mà tôi đã sử dụng
+rất nhiều thời gian để thảo luận về phép chứng minh. Định lý này giờ đã được ghi lại, qua những
+nguồn được công bố, với tôi và một số người khác là tác giả, nên hầu hết mọi người đều cảm
+thấy an toàn khi trích dẫn lại nó; những người trong ngành chắc chắn sẽ không đòi hỏi tôi về tính
+chính xác của nó, hay biểu lộ cho tôi thấy sự cần thiết về các chi tiết mà không có sẵn.
+
+Không phải tất cả các phép chứng minh đều có cùng một vai trò trong giàn ý logic mà chúng ta
+đang xây dựng cho toán học. Phép chứng minh đặc thù này có lẽ chỉ có một giá trị logic tạm thời,
+mặc dù nó có một giá trị động lực lớn lao trong việc giúp đỡ ủng hộ một cái nhìn nhất định vào
+cấu trúc của 3-đa tạp. Giả thuyết hình học hóa tổng quát vẫn là một giả thuyết. Nó đã được chứng
+minh trong rất nhiều trường hợp, và nó cũng được ủng hộ bởi nhiều bằng chứng bằng máy tính,
+nhưng nó vẫn chưa được chứng minh trong trường hợp tổng quát. Tôi bị thuyết phục rằng phép
+chứng minh tổng quát sẽ được khám phá ra; tôi hi vọng thế đã từ rất rất nhiều năm trước đây rồi.
+Ở điểm này, phép chứng minh của các trường hợp đặc biệt thì gần như sẽ trở nên lỗi thời.
+
+Trong khi đó, những người muốn hiểu các kỹ thuật hình học thì tốt hơn là nên bắt đầu với giả
+định: “Cho M3 là một đa tạp mà có nhận một phân rã hình học” bởi vì nó tổng quát hơn “Cho
+M3 là một đa tạp Haken”. Những người không muốn sử dụng kỹ thuật hay những ai đang nghi
+ngờ nó có thể lờ nó đi. Thậm chí là cả khi một định lý về các đa tạp Haken có thể được chứng
+minh bằng các kỹ thuật hình học, việc tìm kiếm những kỹ thuật tôpô để chứng minh nó vẫn có
+giá trị cao.
+
+Trong tình huống này (mà vẫn còn tiếp tục) tôi nghĩ rằng tôi phải cố gắng để loại bỏ hai kết quả
+xấu nhất cho mình: hoặc không hé lộ những gì tôi đã khám phá, giữ nó cho riêng mình (có lẽ cả
+với niềm hi vọng chứng minh giả thuyết Poincare) hay là để giới thiệu một lý thuyết kín kẽ và rất
+khó học mà có người nào để giữ nó tồn tại và phát triển.
+
+Tôi có thể dễ dàng nói rõ về những tiếc nuối trong sự nghiệp của mình. Tôi đã không công bố
+nhiều đến mức nên làm. Có một số dự án toán học ngoài giả thuyết hình học hóa cho các đa tạp Haken mà tôi đã không phát biểu thật tốt trước cộng đồng toán học. Khi tập trung hơn vào phát
+triển cơ sở thay vì những định lý ở cấp cao nhất trong lý thuyết hình học của 3-đa tạp, tôi trở nên
+hơi xa rời trong khi chủ đề này vẫn tiếp tục phát triển và tôi đã không thúc đẩy một cách tích
+cực cũng như hiệu quả của ngành này, hay các sự nghiệp của những người tham gia nghiên cứu
+nó. (Nhưng có vẻ với tôi, một vài mức độ xa rời gần như là một sản phẩm phụ không thể tránh
+được trong việc hướng dẫn các học viên sau đại học và số khác: để thực sự chuyển các hướng
+nghiên cứu đích thực sang những lĩnh vực khác, cần phải gạt bỏ và chặn lại những nghĩ nặng nề
+về những chuyện ấy). 
+
+Mặt khác, tôi đã trở nên bận bịu và có hiệu suất cao hơn, trong nhiều hoạt động khác. Hệ thống
+của chúng ta không tạo được thêm thời gian cho những người như tôi sử dụng để viết và nghiên
+cứu; thay vào đó nó làm tràn ngập chúng tôi bởi rất nhiều cơ hội cho việc làm thêm và phản ứng
+chính của tôi là nói “có” với tất cả những yêu cầu và cơ hội đó. Tôi đã dành nhiều nỗ lực vào
+các hoạt động không tạo ra danh tiếng mà tôi coi trọng như là tôi coi trọng việc chứng minh các
+định lý: nền chính trị toán học, chỉnh sửa các ghi chép của tôi thành một quyển sách với một tiêu
+chuẩn cao của sự trao đổi, khám phá về tính toán trong toán học, giáo dục toán học, phát triển
+những hình thức trao đổi toán học mới qua Trung tâm Hình học (giống như thí nghiệm đầu tiên
+của chúng tôi, video “Not Knot”), chỉ đạo MSRI, ..vv..
+
+Tôi nghĩ rằng những gì tôi đã làm không thể cực đại hóa “danh tiếng” của tôi được. Tôi đã ở
+trong một vị trí mà không có một nhu cầu lớn phải cạnh tranh để giành nhiều hơn sự công nhận.
+Thực ra tôi bắt đầu thấy cảm thấy bị thách thức mạnh mẽ từ những thứ khác, bên cạnh việc chứng
+minh những định lý mới. 
+
+Tôi thực sự tin rằng những hoạt động của tôi đã làm tốt việc khuyến khích toán học. 
