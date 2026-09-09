@@ -10,8 +10,8 @@ Author Name
 :stem: latexmath
 :stylesheet: style.css
 
-[preface]
-= Tóm tắt nội dung
+[.text-center]
+# Tóm tắt
 
 Bài viết này trình bày về bản chất của phép chứng minh và tiến bộ trong toán học, được khuyến khích
 bởi bài báo của Jaffe và Quinn, _“Theoretical Mathematics: Toward a cultural synthesis of mathematics
