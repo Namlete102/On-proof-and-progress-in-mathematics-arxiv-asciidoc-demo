@@ -3,10 +3,12 @@ Author Name
 :author: William P.Thurston
 :date: Ngày 15 tháng 6 năm 2013
 :doctype: book
+:toc-title: Mục lục
 :toc: left
 :numbered: 
 :imagesdir: images 
 :stem: latexmath
+:stylesheet: style.css
 
 [preface]
 = Tóm tắt nội dung
@@ -133,13 +135,10 @@ hoàn toàn nhận biết, thấu hiểu và thường là khó có thể trao �
 sơ sơ tới nó mà thôi.
 
 Con người thường có nhiều cách hiểu khác nhau về những khái niệm toán học. Để minh họa điều này,
-tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau,
-nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn
-toàn thích hợp. Đạo hàm có thể được hiểu như:
+tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau, nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn toàn thích hợp. Đạo hàm có thể được hiểu như:
 
-. Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi
-vô cùng nhỏ của hàm số.
-. Tính ký hiệu: Đạo hàm của latexmath:[x^n] là latexmath:[nx^{n-1}], đào hàm của latexmath:[\sin x] là latexmath:[\cos x] đạo hàm của latexmath:[f \cdot g] là latexmath:[f' \cdot g * g'], ..vv..
+. Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi vô cùng nhỏ của hàm số.
+. Tính ký hiệu: Đạo hàm của latexmath:[x^n] là latexmath:[nx^{n-1}], đào hàm của latexmath:[\sin x] là latexmath:[\cos x] đạo hàm của latexmath:[f \circ g] là latexmath:[f' \cdot g * g'], ..vv..
 . Một cách logic: latexmath:[f'(x) = d] nếu và chỉ nếu với mỗi latexmath:[\epsilon] tồn tại latexmath:[\delta] sao cho khi latexmath:[0 < |\Delta x| < \delta], 
 
 [latexmath]
@@ -199,7 +198,7 @@ là một điều quan trọng trong nghiên cứu toán học: nhìn thấy hì
 này thực sự có giá trị khi lấy hợp thành của các hàm số. Một ứng dụng khác của công cụ này đó là ghi nhớ những phép chứng minh: người ta thường ghi nhớ một phép chứng minh như một quá trình bao gồm một vài bước. Trong tôpô, khái niệm đồng luân thường hay được hiểu nhất là như một quá trình theo thời gian. Xét về mặt toán học, thời gian cũng không khác gì với việc thêm vào
 một trục tọa độ không gian, nhưng bởi vì con người tương tác với nó theo một cách tương đối khác, nên nó lại rất khác về mặt tâm lý. 
 
-## Hiểu biết toán học được truyền đạt nhứ thế nào ? 
+## Hiểu biết toán học được truyền đạt như thế nào ? 
 
 Việc truyền đạt hiểu biết từ người này sang người khác là không tự động. Nó khó khăn và mẹo mực. Bởi vậy, để phân tích hiểu biết của con người về toán học, việc quan trọng là phải biết _ai hiểu_, _hiểu gì_, và _khi nào thì hiểu_.
 

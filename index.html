@@ -7,25 +7,39 @@
 <meta name="generator" content="Asciidoctor.js 4.0.6">
 <meta name="author" content="William P.Thurston">
 <title>Về chứng minh và sự tiến bộ trong toán học</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CNoto+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
 /* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
-html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+
+html {
+  font-family:sans-serif;-webkit-text-size-adjust:100%
+}
+
 a{background:none}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
+
 h1{font-size:2em;margin:.67em 0}
+
 b,strong{font-weight:bold}
+
 abbr{font-size:.9em}
+
 abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+
 dfn{font-style:italic}
+
 hr{height:0}
+
 mark{background:#ff0;color:#000}
+
 code,kbd,pre,samp{font-family:monospace;font-size:1em}
+
 pre{white-space:pre-wrap}
+
 q{quotes:"\201C" "\201D" "\2018" "\2019"}
+
 small{font-size:80%}
 sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sup{top:-.5em}
@@ -40,18 +54,56 @@ legend{border:0;padding:0}
 button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
 button,input{line-height:normal}
 button,select{text-transform:none}
-button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+
+button, html, input[type="button"], input[type="reset"], input[type="submit"]
+{
+  appearance:button;
+  cursor:pointer
+}
+
 button[disabled],html input[disabled]{cursor:default}
+
 input[type=checkbox],input[type=radio]{padding:0}
+
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+
 textarea{overflow:auto;vertical-align:top}
+
 table{border-collapse:collapse;border-spacing:0}
+
+/*  */
+
 *,::before,::after{box-sizing:border-box}
+
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
-a:hover{cursor:pointer}
-img,object,embed{max-width:100%;height:auto}
+
+/* Nền trang nội dung */
+
+body{
+  background: rgb(28, 26, 23); 
+  color: rgb(238, 238, 238);
+  padding:0;margin:0;
+  font-family:'Computer Modern Serif', serif;
+  line-height:1;
+  position:relative;
+  cursor:auto;
+  -moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;
+  -moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased
+}
+
+/*  */
+
+a:hover{
+  cursor:pointer
+}
+
+img,object,embed{
+  max-width:100%;
+  height:auto
+}
+
 object,embed{height:100%}
+
 img{-ms-interpolation-mode:bicubic}
 .left{float:left!important}
 .right{float:right!important}
@@ -60,23 +112,45 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
+
 img,object,svg{display:inline-block;vertical-align:middle}
+
 textarea{height:auto;min-height:50px}
+
 select{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
+
 a:hover,a:focus{color:#1d4b8f}
+
 a img{border:0}
+
 p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+
 p aside{font-size:.875em;line-height:1.35;font-style:italic}
-h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{
+  font-family:'Computer Modern Serif', serif;
+  font-weight:300;font-style:normal;
+  color:rgb(152, 196, 232);
+  text-rendering:optimizeLegibility;
+  margin-top:1em;margin-bottom:.5em;line-height:1.0125em
+}
+
 h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+
 h1{font-size:2.125em}
+
 h2{font-size:1.6875em}
+
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+
 h4,h5{font-size:1.125em}
+
 h6{font-size:1em}
+
 hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
 em,i{font-style:italic;line-height:inherit}
 strong,b{font-weight:bold;line-height:inherit}
@@ -129,41 +203,99 @@ kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-bl
 .menuseq{word-spacing:-.02em}
 .menuseq b.caret{font-size:1.25em;line-height:.8}
 .menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+
+/* menu */
+
+/* Căn chỉnh nội dung so với thanh menu */
+
 b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
 b.button::before{content:"[";padding:0 3px 0 2px}
 b.button::after{content:"]";padding:0 2px 0 3px}
 p a>code:hover{color:rgba(0,0,0,.9)}
-#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+
+/* Tiêu đề, chân trang ở phần chứa nội dung*/
+
+#header,#content,#footnotes,#footer{
+  width:100%;
+  margin:0 auto;
+  max-width:62.5em;
+  position:relative;
+  padding-left:.9375em;
+  padding-right:.9375em;
+  box-sizing: border-box
+}
+
 #header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
 #header::after,#content::after,#footnotes::after,#footer::after{clear:both}
 #content{margin-top:1.25em}
 #content::before{content:none}
-#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+
+/* Tiêu đề bài viết */
+#header>h1:first-child{color:rgb(238, 238, 238);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
 #header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
-#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details{
+  border-bottom:1px solid #dddddf;
+  line-height:1.45;
+  padding-top:.25em;
+  padding-bottom:.25em;padding-left:.25em;
+  color:rgb(238, 238, 238);
+  display:flex;
+  flex-flow:row wrap
+}
 #header .details span:first-child{margin-left:-.125em}
-#header .details span.email a{color:rgba(0,0,0,.85)}
+
+/* mail */
+#header .details span.email a{color:rgb(238, 238, 238)}
 #header .details br{display:none}
 #header .details br+span::before{content:"\00a0\2013\00a0"}
-#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+/* tên tác giả */
+#header .details br+span.author::before{content:"\00a0\22c5\00a0"; color:rgb(238, 238, 238)}
 #header .details br+span#revremark::before{content:"\00a0|\00a0"}
 #header #revnumber{text-transform:capitalize}
 #header #revnumber::after{content:"\00a0"}
-#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+
+/*  */
+#content>h1:first-child:not([class]){color:rgb(238, 238, 238);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+
+/* Tiêu đề của thanh menu */
+
 #toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
 #toc>ul{margin-left:.125em}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
-#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc ul{
+  list-style-type:none
+}
+
 #toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
-#toctitle{color:#7a2518;font-size:1.2em}
+
+#toctitle{
+  color: rgb(62, 177, 198);
+  font-size:1.2em
+}
+
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
   body.toc2{padding-left:15em;padding-right:0}
   body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
-  #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+  /* Nền thanh menu */
+  #toc.toc2{
+    margin-top:0!important;
+    background:#f8f8f7;
+    position:fixed;
+    width:15em;
+    left:0;
+    top:0;
+    border-right:1px solid #e7e7e9;
+    border-top-width:0!important;
+    border-bottom-width:0!important;
+    z-index:1000;
+    padding:1.25em 1em;
+    height:100%;
+    overflow:auto
+  }
   #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
   #toc.toc2>ul{font-size:.9em;margin-bottom:0}
   #toc.toc2 ul ul{margin-left:0;padding-left:1em}
@@ -443,12 +575,12 @@ p{margin-bottom:1.25rem}
 <span id="author" class="author">William P.Thurston</span><br>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">Mục lục</div>
 <ul class="sectlevel1">
 <li><a href="#_tóm_tắt_nội_dung">Tóm tắt nội dung</a></li>
 <li><a href="#_các_nhà_toán_học_đạt_được_thành_quả_gì">1. Các nhà toán học đạt được thành quả gì ?</a></li>
 <li><a href="#_con_người_hiểu_về_toán_học_như_thế_nào">2. Con người hiểu về toán học như thế nào ?</a></li>
-<li><a href="#_hiểu_biết_toán_học_được_truyền_đạt_nhứ_thế_nào">3. Hiểu biết toán học được truyền đạt nhứ thế nào ?</a></li>
+<li><a href="#_hiểu_biết_toán_học_được_truyền_đạt_như_thế_nào">3. Hiểu biết toán học được truyền đạt như thế nào ?</a></li>
 <li><a href="#_thế_nào_là_một_phép_chứng_minh">4. Thế nào là một phép chứng minh</a></li>
 <li><a href="#_điều_gì_khích_lệ_con_người_nghiên_cứu_toán_học">5. Điều gì khích lệ con người nghiên cứu toán học ?</a></li>
 <li><a href="#_một_số_kinh_nghiệm_cá_nhân">6. Một số kinh nghiệm cá nhân</a></li>
@@ -630,18 +762,15 @@ sơ sơ tới nó mà thôi.</p>
 </div>
 <div class="paragraph">
 <p>Con người thường có nhiều cách hiểu khác nhau về những khái niệm toán học. Để minh họa điều này,
-tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau,
-nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn
-toàn thích hợp. Đạo hàm có thể được hiểu như:</p>
+tốt hơn hết là dẫn ra một ví dụ mà các nhà toán học có kinh nghiệm hiểu theo nhiều cách khác nhau, nhưng chúng ta lại thấy các sinh viên thì khốn đốn với nó. Đạo hàm của một hàm số là một ví dụ hoàn toàn thích hợp. Đạo hàm có thể được hiểu như:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi
-vô cùng nhỏ của hàm số.</p>
+<p>Tính vô cùng bé: Tỉ số giữa sự thay đổi vô cùng nhỏ trong giá trị của một hàm số với sự thay đổi vô cùng nhỏ của hàm số.</p>
 </li>
 <li>
-<p>Tính ký hiệu: Đạo hàm của \(x^n\) là \(nx^{n-1}\), đào hàm của \(\sin x\) là \(\cos x\) đạo hàm của \(f \cdot g\) là \(f' \cdot g * g'\), ..vv..</p>
+<p>Tính ký hiệu: Đạo hàm của \(x^n\) là \(nx^{n-1}\), đào hàm của \(\sin x\) là \(\cos x\) đạo hàm của \(f \circ g\) là \(f' \cdot g * g'\), ..vv..</p>
 </li>
 <li>
 <p>Một cách logic: \(f'(x) = d\) nếu và chỉ nếu với mỗi \(\epsilon\) tồn tại \(\delta\) sao cho khi \(0 &lt; |\Delta x| &lt; \delta\),</p>
@@ -750,7 +879,7 @@ một trục tọa độ không gian, nhưng bởi vì con người tương tác
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hiểu_biết_toán_học_được_truyền_đạt_nhứ_thế_nào">3. Hiểu biết toán học được truyền đạt nhứ thế nào ?</h2>
+<h2 id="_hiểu_biết_toán_học_được_truyền_đạt_như_thế_nào">3. Hiểu biết toán học được truyền đạt như thế nào ?</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Việc truyền đạt hiểu biết từ người này sang người khác là không tự động. Nó khó khăn và mẹo mực. Bởi vậy, để phân tích hiểu biết của con người về toán học, việc quan trọng là phải biết <em>ai hiểu</em>, <em>hiểu gì</em>, và <em>khi nào thì hiểu</em>.</p>
@@ -1384,7 +1513,7 @@ minh những định lý mới.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-09 15:09:27 +0700
+Last updated 2026-09-10 01:16:02 +0700
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
